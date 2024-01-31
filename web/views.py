@@ -5,10 +5,25 @@ from weasyprint import HTML, CSS
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from api.models import BasicInformation
-from django.shortcuts import render, redirect
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
+from django.contrib.auth.views import LoginView
+from django.shortcuts import render, redirect
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth import login
+from django.contrib import messages
+from django.urls import reverse_lazy
+from django.views.generic.edit import FormView
+
+
+class CustomLoginView(LoginView):
+    template_name = 'login.html'
+    redirect_authenticated_user = True
+
+    def get_success_url(self):
+        return reverse_lazy('cv_list')
 
 
 def cv_detail(request, cv_id):

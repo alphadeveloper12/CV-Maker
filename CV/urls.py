@@ -20,6 +20,8 @@ from web.views import *
 from api.views import *
 from django.conf.urls.static import static
 from django.conf import settings
+from web.views import *
+from django.contrib.auth.views import LogoutView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -27,6 +29,8 @@ urlpatterns = [
     path('cvs/<int:cv_id>/', cv_detail, name='cv_detail'),
     path('api/cv-detail/<int:cv_id>/', CVDetailView.as_view(), name='cv_detail_api'),
     path('api/', include('api.urls')),
+    path('login/', CustomLoginView.as_view(), name='login'),
+    path('logout/', LogoutView.as_view(next_page='login'), name='logout'),
 ]
 # Serve static files during development
 if settings.DEBUG:

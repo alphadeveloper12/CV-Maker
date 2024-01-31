@@ -1,42 +1,98 @@
 # api/serializers.py
 
 from rest_framework import serializers
-from .models import BasicInformation, Experience, Education, IndustryKnowledge, Tool, OtherSkill, Language, Social
+from .models import *
+
 
 class SocialSerializer(serializers.ModelSerializer):
     class Meta:
         model = Social
         fields = '__all__'
 
+
 class LanguageSerializer(serializers.ModelSerializer):
     class Meta:
         model = Language
         fields = '__all__'
+
 
 class OtherSkillSerializer(serializers.ModelSerializer):
     class Meta:
         model = OtherSkill
         fields = '__all__'
 
+
 class ToolSerializer(serializers.ModelSerializer):
     class Meta:
         model = Tool
         fields = '__all__'
+
 
 class IndustryKnowledgeSerializer(serializers.ModelSerializer):
     class Meta:
         model = IndustryKnowledge
         fields = '__all__'
 
+
 class EducationSerializer(serializers.ModelSerializer):
     class Meta:
         model = Education
         fields = '__all__'
 
+
 class ExperienceSerializer(serializers.ModelSerializer):
     class Meta:
         model = Experience
         fields = '__all__'
+
+
+class ProjectSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Project
+        fields = '__all__'
+
+
+class InterestSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Interest
+        fields = '__all__'
+
+
+class ActivitySerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Activity
+        fields = '__all__'
+
+
+class AchievementAndAwardSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = AchievementAndAward
+        fields = '__all__'
+
+
+class PublicationSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Publication
+        fields = '__all__'
+
+
+class ReferenceSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Reference
+        fields = '__all__'
+
+
+class TemplateSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Template
+        fields = '__all__'
+
+
+class UserSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = User
+        fields = ('id', 'first_name', 'last_name', 'username', 'email', 'password',)
+
 
 class BasicInformationSerializer(serializers.ModelSerializer):
     social = SocialSerializer()
@@ -46,6 +102,12 @@ class BasicInformationSerializer(serializers.ModelSerializer):
     industry_knowledge = IndustryKnowledgeSerializer(many=True)
     educations = EducationSerializer(many=True)
     experiences = ExperienceSerializer(many=True)
+    projects = ProjectSerializer(many=True)
+    interests = InterestSerializer(many=True)
+    activities = ActivitySerializer(many=True)
+    achievements_and_awards = AchievementAndAwardSerializer(many=True)
+    publications = PublicationSerializer(many=True)
+    references = ReferenceSerializer(many=True)
 
     class Meta:
         model = BasicInformation
@@ -58,6 +120,12 @@ class BasicInformationSerializer(serializers.ModelSerializer):
         languages_data = validated_data.pop('languages', [])
         educations_data = validated_data.pop('educations', [])
         experiences_data = validated_data.pop('experiences', [])
+        projects_data = validated_data.pop('projects', [])
+        interests_data = validated_data.pop('interests', [])
+        activities_data = validated_data.pop('activities', [])
+        achievements_and_awards_data = validated_data.pop('achievements_and_awards', [])
+        publications_data = validated_data.pop('publications', [])
+        references_data = validated_data.pop('references', [])
 
         basic_info = BasicInformation.objects.create(**validated_data)
 
@@ -68,6 +136,12 @@ class BasicInformationSerializer(serializers.ModelSerializer):
         basic_info.languages.set(Language.objects.create(**item) for item in languages_data)
         basic_info.educations.set(Education.objects.create(**item) for item in educations_data)
         basic_info.experiences.set(Experience.objects.create(**item) for item in experiences_data)
+        basic_info.projects.set(Project.objects.create(**item) for item in projects_data)
+        basic_info.interests.set(Interest.objects.create(**item) for item in interests_data)
+        basic_info.activities.set(Activity.objects.create(**item) for item in activities_data)
+        basic_info.achievements_and_awards.set(AchievementAndAward.objects.create(**item) for item in achievements_and_awards_data)
+        basic_info.publications.set(Publication.objects.create(**item) for item in publications_data)
+        basic_info.references.set(Reference.objects.create(**item) for item in references_data)
 
         return basic_info
 
@@ -78,6 +152,12 @@ class BasicInformationSerializer(serializers.ModelSerializer):
         languages_data = validated_data.pop('languages', [])
         educations_data = validated_data.pop('educations', [])
         experiences_data = validated_data.pop('experiences', [])
+        projects_data = validated_data.pop('projects', [])
+        interests_data = validated_data.pop('interests', [])
+        activities_data = validated_data.pop('activities', [])
+        achievements_and_awards_data = validated_data.pop('achievements_and_awards', [])
+        publications_data = validated_data.pop('publications', [])
+        references_data = validated_data.pop('references', [])
 
         instance = super(BasicInformationSerializer, self).update(instance, validated_data)
 
@@ -88,5 +168,11 @@ class BasicInformationSerializer(serializers.ModelSerializer):
         instance.languages.set(Language.objects.create(**item) for item in languages_data)
         instance.educations.set(Education.objects.create(**item) for item in educations_data)
         instance.experiences.set(Experience.objects.create(**item) for item in experiences_data)
+        instance.projects.set(Project.objects.create(**item) for item in projects_data)
+        instance.interests.set(Interest.objects.create(**item) for item in interests_data)
+        instance.activities.set(Activity.objects.create(**item) for item in activities_data)
+        instance.achievements_and_awards.set(AchievementAndAward.objects.create(**item) for item in achievements_and_awards_data)
+        instance.publications.set(Publication.objects.create(**item) for item in publications_data)
+        instance.references.set(Reference.objects.create(**item) for item in references_data)
 
         return instance
