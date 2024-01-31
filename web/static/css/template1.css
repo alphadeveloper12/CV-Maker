@@ -1,0 +1,83 @@
+body {
+    font-family: 'Arial', sans-serif;
+}
+.container-fluid{
+    margin: 50px;
+}
+.name {
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 0px;
+}
+.first_name{
+    color: #F5C400;
+}
+.last_name{
+    color: #101214;
+}
+.main_designation{
+    color: #101214;
+    font-size: 22px;
+    font-weight: 400;
+    margin-bottom: 0px;
+}
+.main_heading h2{
+    margin-top: 30px;
+    color: #73808D;
+    font-size: 12px;
+    font-weight: 400;
+
+}
+.experience_desgnation{
+    color: #101214;
+    font-size: 15px;
+    font-weight: 700;
+}
+.experience_company{
+    color: #101214;
+    font-size: 15px;
+    font-weight: 400;
+}
+.experience_date{
+    color: #73808D;
+    font-size: 7px;
+    font-weight: 400;
+}
+.experience_description{
+    color: #101214;
+    font-size: 11px;
+    font-weight: 400;
+}
+
+
+.education_name{
+    color: #101214;
+    font-size: 11px;
+    font-weight: 400;
+}
+.education_date{
+    color: #73808D;
+    font-size: 7px;
+    font-weight: 400;
+}
+.education_school{
+    color: #101214;
+    font-size: 11px;
+    font-weight: 400;
+}
+.left_data{
+    font-weight: 400;
+    font-size: 11px;
+    color: #73808D;
+}
+.left_headings{
+    font-weight: 700;
+    font-size: 11px;
+    color: #73808D;
+}
+.basic_info{
+    margin-top: 30px;
+}
+.image img{
+    border-radius: 50px;
+}

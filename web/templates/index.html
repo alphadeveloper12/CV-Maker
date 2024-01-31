@@ -1,0 +1,702 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+          integrity="sha384-wq3f02W52rW6TKq0ifgGUeh5XYJe7LsSxLQ8/+oG8KfoPDc4z7E660k6fJc4lnX" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    {#    <link href="{% static 'css/style.css' %}" rel="stylesheet"/>#}
+    <script src="{% static 'js/main.js' %}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"
+            integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg=="
+            crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <style>
+        html,
+        body,
+        div,
+        span,
+        object,
+        iframe,
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6,
+        p,
+        blockquote,
+        pre,
+        abbr,
+        address,
+        cite,
+        code,
+        del,
+        dfn,
+        em,
+        img,
+        ins,
+        kbd,
+        q,
+        samp,
+        small,
+        strong,
+        sub,
+        sup,
+        var,
+        b,
+        i,
+        dl,
+        dt,
+        dd,
+        ol,
+        ul,
+        li,
+        fieldset,
+        form,
+        label,
+        legend,
+        table,
+        caption,
+        tbody,
+        tfoot,
+        thead,
+        tr,
+        th,
+        td,
+        article,
+        aside,
+        canvas,
+        details,
+        figcaption,
+        figure,
+        footer,
+        header,
+        hgroup,
+        menu,
+        nav,
+        section,
+        summary,
+        time,
+        mark,
+        audio,
+        video {
+            border: 0;
+            font: inherit;
+            font-size: 100%;
+            margin: 0;
+            padding: 0;
+            vertical-align: baseline;
+        }
+
+        article,
+        aside,
+        details,
+        figcaption,
+        figure,
+        footer,
+        header,
+        hgroup,
+        menu,
+        nav,
+        section {
+            display: block;
+        }
+
+        /* We need to minimize the use of code, so we will be using roots...this is in the works */
+        :root {
+            --highlight: #a29400;
+            --header-font: "Gudea", Helvetica, Arial, sans-serif;
+            --content-font: "Lato", Helvetica, Arial, sans-serif;
+        }
+
+        html,
+        body {
+            background: #fff;
+            font-family: "Lato", Helvetica, Arial, sans-serif;
+            font-feature-settings: "calt", "liga", "hist", "onum", "pnum";
+            font-size: 1rem;
+            color: #222;
+        }
+
+        .clear {
+            clear: both;
+        }
+
+        #menu {
+            position: fixed;
+            right: 0;
+            top: 15%;
+            width: 8em;
+            margin-top: -2.5em;
+        }
+
+        p {
+            font-size: 1em;
+            line-height: 1.4em;
+            margin-bottom: 20px;
+            color: #444;
+            transition: all 1s linear;
+            -o-transition: all 1s linear;
+            -moz-transition: all 1s linear;
+            -webkit-transition: all 1s linear;
+        }
+
+        a {
+            color: inherit;
+        }
+
+        .cv {
+        / / width: 90 %;
+            max-width: 54rem;
+            background: #fff;
+            margin: 0px auto;
+        }
+
+        .cv:hover {
+            cursor: grab;
+            cursor: -moz-grab;
+            cursor: -webkit-grab;
+        }
+
+        .cv:active {
+            cursor: grabbing;
+            cursor: -moz-grabbing;
+            cursor: -webkit-grabbing;
+        }
+
+        .mainDetails {
+            padding: 25px 35px;
+            border-bottom: 2px solid #cf8a05;
+            background: #f3f3f3;
+        }
+
+        #name h1 {
+            font-size: 2.5em;
+        / / font-weight: 700;
+            font-family: "Gudea", Helvetica, arial, sans-serif;
+        / / font-feature-settings: "caps", "sups" 1;
+        / / margin-bottom: - 6 px;
+        }
+
+        #name h2 {
+            font-size: 2em;
+        / / margin-left: 2 px;
+            font-family: "Gudea", Helvetica, arial, sans-serif;
+        }
+
+        #mainArea {
+            padding: 0 40px;
+        }
+
+
+        .wrap {
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+
+        .wrap:hover {
+            box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+        }
+
+        #headshot {
+            width: 12.5%;
+            float: left;
+            margin-right: 30px;
+        }
+
+        #headshot img {
+            width: 100%;
+            height: auto;
+            -webkit-border-radius: 50px;
+            border-radius: 50px;
+        }
+
+        #name {
+            float: left;
+        }
+
+        #contactDetails {
+            float: right;
+        }
+
+        #contactDetails ul {
+            list-style-type: none;
+            font-size: 0.9em;
+            margin-top: 2px;
+        }
+
+        #contactDetails ul li {
+            margin-bottom: 3px;
+            color: #444;
+            display: inline;
+        }
+
+        #contactDetails ul li a,
+        a[href^="tel"] {
+            color: #444;
+            text-decoration: none;
+            -webkit-transition: all 0.3s ease-in;
+            -moz-transition: all 0.3s ease-in;
+            -o-transition: all 0.3s ease-in;
+            -ms-transition: all 0.3s ease-in;
+            transition: all 0.3s ease-in;
+        }
+
+        #contactDetails ul li a:hover {
+            color: #cf8a05;
+        }
+
+        section {
+            border-top: 1px solid #dedede;
+            padding: 20px 0 0;
+        }
+
+        section:first-child {
+            border-top: 0;
+        }
+
+        section:last-child {
+            padding: 20px 0 10px;
+        }
+
+        .sectionTitle {
+            float: left;
+            width: 25%;
+        }
+
+        .sectionContent {
+            float: right;
+            width: 72.5%;
+        }
+
+        .sectionTitle h1 {
+            font-family: "Gudea", helvetica, arial, sans-serif;
+            font-size: 0.89em;
+            color: #cf8a05;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .sectionContent h2 {
+            font-family: "Gudea", helvetica, arial, sans-serif;
+            font-size: 1.5em;
+            margin-bottom: -2px;
+        }
+
+        .subDetails {
+            font-size: 80%;
+        / / font-style: italic;
+            margin-bottom: 3px;
+        }
+
+        .keySkills {
+            list-style-type: none;
+            -moz-column-count: 3;
+            -webkit-column-count: 3;
+            column-count: 3;
+            margin-bottom: 20px;
+            font-size: 1em;
+            color: #444;
+        }
+
+        .keySkills ul li {
+            margin-bottom: 3px;
+        }
+
+
+        @media all and (min-width: 602px) and (max-width: 800px) {
+            #headshot {
+                display: none;
+            }
+
+            .keySkills {
+                -moz-column-count: 2;
+                -webkit-column-count: 2;
+                column-count: 2;
+            }
+        }
+
+
+        @media all and (max-width: 54rem) {
+            .cv {
+                width: 95%;
+                margin: 10px auto;
+                min-width: 280px;
+                transition: all 0.25s linear;
+                -o-transition: all 0.25s linear;
+                -moz-transition: all 0.25s linear;
+                -webkit-transition: all 0.25s linear;
+            }
+
+            #headshot {
+                display: none;
+            }
+
+            #name,
+            #contactDetails {
+                float: none;
+                width: 100%;
+                text-align: center;
+            }
+
+            .sectionTitle,
+            .sectionContent {
+                float: none;
+                width: 100%;
+            }
+
+            .sectionTitle {
+                margin-left: -2px;
+                font-size: 1.25em;
+            }
+
+            .keySkills {
+                -moz-column-count: 2;
+                -webkit-column-count: 2;
+                column-count: 2;
+            }
+        }
+
+        @media all and (max-width: 480px) {
+            .mainDetails {
+                padding: 15px 15px;
+            }
+
+            section {
+                padding: 15px 0 0;
+            }
+
+            #mainArea {
+                padding: 0 25px;
+            }
+
+            .keySkills {
+                -moz-column-count: 1;
+                -webkit-column-count: 1;
+                column-count: 1;
+            }
+
+            #name h1 {
+                line-height: 0.8em;
+                margin-bottom: 4px;
+            }
+        }
+
+        @media print {
+            .cv {
+                width: 100%;
+            }
+        }
+
+
+        @-webkit-keyframes reset {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 0;
+            }
+        }
+
+        @-webkit-keyframes fade-in {
+            0% {
+                opacity: 0;
+            }
+            40% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        @-moz-keyframes reset {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 0;
+            }
+        }
+
+        @-moz-keyframes fade-in {
+            0% {
+                opacity: 0;
+            }
+            40% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        @keyframes reset {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 0;
+            }
+        }
+
+        @keyframes fade-in {
+            0% {
+                opacity: 0;
+            }
+            40% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        .instaFade {
+            -webkit-animation-name: reset, fade-in;
+            -webkit-animation-duration: 1.5s;
+            -webkit-animation-timing-function: ease-in;
+
+            -moz-animation-name: reset, fade-in;
+            -moz-animation-duration: 1.5s;
+            -moz-animation-timing-function: ease-in;
+
+            animation-name: reset, fade-in;
+            animation-duration: 1.5s;
+            animation-timing-function: ease-in;
+        }
+
+        .quickFade {
+            -webkit-animation-name: reset, fade-in;
+            -webkit-animation-duration: 2.5s;
+            -webkit-animation-timing-function: ease-in;
+
+            -moz-animation-name: reset, fade-in;
+            -moz-animation-duration: 2.5s;
+            -moz-animation-timing-function: ease-in;
+
+            animation-name: reset, fade-in;
+            animation-duration: 2.5s;
+            animation-timing-function: ease-in;
+        }
+
+        .delayOne {
+            -webkit-animation-delay: 0, 0.5s;
+            -moz-animation-delay: 0, 0.5s;
+            animation-delay: 0, 0.5s;
+        }
+
+        .delayTwo {
+            -webkit-animation-delay: 0, 1s;
+            -moz-animation-delay: 0, 1s;
+            animation-delay: 0, 1s;
+        }
+
+        .delayThree {
+            -webkit-animation-delay: 0, 1.5s;
+            -moz-animation-delay: 0, 1.5s;
+            animation-delay: 0, 1.5s;
+        }
+
+        .delayFour {
+            -webkit-animation-delay: 0, 2s;
+            -moz-animation-delay: 0, 2s;
+            animation-delay: 0, 2s;
+        }
+
+        .delayFive {
+            -webkit-animation-delay: 0, 2.5s;
+            -moz-animation-delay: 0, 2.5s;
+            animation-delay: 0, 2.5s;
+        }
+
+    </style>
+
+</head>
+<body>
+<div id="drag" class="cv instaFade wrap">
+    <div class="mainDetails">
+        <div id="headshot" class="">
+            <img src="https://res.cloudinary.com/djr7eqcgp/image/upload/v1552306990/elon-musk-20837159-1-402.png"
+                 title="Elon Musk" alt="Elon Musk"/>
+        </div>
+
+        <div id="name">
+            <h1 class="quickFade delayTwo">{{ cv.first_name }}</h1>
+            <h4 class="quickFade delayThree">Entrepreneur, Engineer</h4>
+            <h4 class="quickFade delayThree">Example CV</h4>
+        </div>
+
+        <div id="contactDetails" class="quickFade delayFour">
+            <ul>
+
+                <!-- <li><a href="#yourlink" title="LinkedIn"><i class="fa fa-print" aria-hidden="true"></i></a></li>-->
+                <li><a href="#yourlink" title="LinkedIn"><i class="fa fa-linkedin-square" aria-hidden="true"></i></a>
+                </li>
+                <li><a href="#yourlink" title="LinkedIn"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+
+            </ul>
+        </div>
+        <div class="clear"></div>
+    </div>
+
+    <div id="mainArea" class="quickFade delayFive">
+
+        <section>
+            <article>
+                <div class="sectionTitle">
+                    <h1>Personal Profile</h1>
+                </div>
+
+                <div class="sectionContent">
+                    <p>Born and raised in Pretoria, South Africa, Musk moved to Canada when he was 17 to attend Queen's
+                        University. He transferred to the University of Pennsylvania two years later, where he received
+                        an economics degree from the Wharton School and a degree in physics from the College of Arts and
+                        Sciences. He began a Ph.D. in applied physics and material sciences at Stanford University in
+                        1995 but dropped out after two days to pursue an entrepreneurial career.</p>
+                </div>
+            </article>
+            <div class="clear"></div>
+        </section>
+
+
+        <section>
+            <div class="sectionTitle">
+                <h1>Work Experience</h1>
+            </div>
+
+            <div class="sectionContent">
+                <article>
+                    <h2>Founder, CEO & Lead Designer</h2>
+                    <h3>SpaceX - Space Exploration Technologies </h3>
+                    <p class="subDetails">06/2002 - Present</p>
+                    <p>Succesfully launched Falcon Heavy, the most powerful operational rocket in the world by a factor
+                        of two, with the ability to lift into the orbit nearly 64 metric tons(141,000 lb) -- a mass
+                        greater than a 737 jetliner loaded with passengers, crew, luggage and fuel.</p>
+                    <p>Plans to reduce space transportation costs to enable people to colonize Mars.</p>
+                    <p>Developed the Falcon 9 spacecraft which replaced the space shuttle it retired in 2011.</p>
+                </article>
+
+                <article>
+                    <h2>Founder</h2>
+                    <h3>The Boring Company</h3>
+                    <p class="subDetails">12/2016 - Present</p>
+                    <p>Raised $10m by selling 20.000 flamethrowers in 4 days.</p>
+                    <p>Raised $1m by selling 50.00 baseball caps.</p>
+                    <p>Hyperloop -- an ultra high-speed underground public transportation system in which passengers are
+                        transported on autonomous electric pods traveling at 600+ miles per hour in a pressurized
+                        cabin.</p>
+                </article>
+
+                <article>
+                    <h2>CEO and Product Architect</h2>
+                    <h3>Tesla inc.</h3>
+                    <p class="subDetails">2004 - Present</p>
+                    <p>Global sales passed 250,000 units in September 2017.</p>
+                    <p>Consumer Reports named Tesla as the top American car brand and ranked it 8th among global
+                        carmakers in February 2017.</p>
+                    <p>Topped Consumer Reports Annual Owner Satisfaction Survey at 91% in 2016.</p>
+                </article>
+
+                <article>
+                    <h2>Co-founder and Former Chairman</h2>
+                    <h3>SolarCity (subsidiary of Tesla Inc.)</h3>
+                    <p class="subDetails">06/2006 - Present</p>
+                    <p>Merged the company with Tesla Inc. and now offers energy storage devices through Tesla, including
+                        a turnkey residential battery backup service that incorporates Tesla's Powerwall.</p>
+                    <p>In 2015, installed 870MW of solar power, approximately 28% of non-utility solar installation in
+                        the U.S. that year.</p>
+                </article>
+
+
+                <article>
+                    <h2>Founder & CEO</h2>
+                    <h3>Neurolink</h3>
+                    <p class="subDetails">07/2016 - Present</p>
+                    <p>A company aims to make devices to treat serious brain diseases in the short-term, with the
+                        eventual goal of human enhancement.</p>
+                </article>
+
+            </div>
+
+
+            <div class="clear"></div>
+        </section>
+
+
+        <section>
+            <div class="sectionTitle">
+                <h1>Key Skills</h1>
+            </div>
+
+            <div class="sectionContent">
+                <ul class="keySkills">
+                    <li>Micromanagement</li>
+                    <li>Marketing</li>
+                    <li>Leadership</li>
+                    <li>Creativity</li>
+                    <li>Time Management</li>
+                    <li>Persistence</li>
+                    <li>Resiliency</li>
+                    <li>Long-term thinking</li>
+                </ul>
+            </div>
+            <div class="clear"></div>
+        </section>
+
+
+        <section id="Education">
+            <div class="sectionTitle">
+                <h1>Education</h1>
+            </div>
+
+            <div class="sectionContent">
+                <article>
+                    <h2>Bachelor’s of Science in Economics</h2>
+                    <p class="subDetails">Wharton School of the University of Pennsylvania</p>
+                    <p>09/1992 - 06/1995
+                    </p>
+                </article>
+
+                <article>
+                    <h2>Bachelor of Science in Physics</h2>
+                    <p class="subDetails">Penn's college of Arts and Sciences</p>
+                    <p>09/1992 - 06/1995</p>
+                </article>
+            </div>
+            <div class="clear"></div>
+        </section>
+
+
+        <section>
+            <article>
+                <div class="sectionTitle">
+                    <h1>Publications</h1>
+                </div>
+
+                <div class="sectionContent">
+                    <p> Your text here</p>
+                </div>
+
+                <div class="sectionContent">
+                    <p>Your text here.</p>
+                </div>
+
+                <div class="sectionContent">
+                    <p>Your text here</p>
+                </div>
+
+            </article>
+            <div class="clear"></div>
+        </section>
+
+
+    </div>
+</div>
+
+
+</body>
+</html>
