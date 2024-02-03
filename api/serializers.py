@@ -95,19 +95,19 @@ class UserSerializer(serializers.ModelSerializer):
 
 
 class BasicInformationSerializer(serializers.ModelSerializer):
-    social = SocialSerializer()
-    languages = LanguageSerializer(many=True)
-    other_skills = OtherSkillSerializer(many=True)
-    tools = ToolSerializer(many=True)
-    industry_knowledge = IndustryKnowledgeSerializer(many=True)
-    educations = EducationSerializer(many=True)
-    experiences = ExperienceSerializer(many=True)
-    projects = ProjectSerializer(many=True)
-    interests = InterestSerializer(many=True)
-    activities = ActivitySerializer(many=True)
-    achievements_and_awards = AchievementAndAwardSerializer(many=True)
-    publications = PublicationSerializer(many=True)
-    references = ReferenceSerializer(many=True)
+    social = SocialSerializer(allow_null=True, required=False)
+    languages = LanguageSerializer(many=True, allow_null=True, required=False)
+    other_skills = OtherSkillSerializer(many=True, allow_null=True, required=False)
+    tools = ToolSerializer(many=True, allow_null=True, required=False)
+    industry_knowledge = IndustryKnowledgeSerializer(many=True, allow_null=True, required=False)
+    educations = EducationSerializer(many=True, allow_null=True, required=False)
+    experiences = ExperienceSerializer(many=True, allow_null=True, required=False)
+    projects = ProjectSerializer(many=True, allow_null=True, required=False)
+    interests = InterestSerializer(many=True, allow_null=True, required=False)
+    activities = ActivitySerializer(many=True, allow_null=True, required=False)
+    achievements_and_awards = AchievementAndAwardSerializer(many=True, allow_null=True, required=False)
+    publications = PublicationSerializer(many=True, allow_null=True, required=False)
+    references = ReferenceSerializer(many=True, allow_null=True, required=False)
 
     class Meta:
         model = BasicInformation
