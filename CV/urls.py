@@ -26,7 +26,7 @@ from django.contrib.auth.views import LogoutView
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('cvs/', cv_list, name='cv_list'),
-    path('cvs/<int:cv_id>/', cv_detail, name='cv_detail'),
+    # path('cvs/<int:cv_id>/', cv_detail, name='cv_detail'),
     path('api/cv-detail/<int:cv_id>/', CVDetailView.as_view(), name='cv_detail_api'),
     path('api/', include('api.urls')),
     # path('login/', CustomLoginView.as_view(), name='login'),

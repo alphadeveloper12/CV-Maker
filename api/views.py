@@ -57,7 +57,8 @@ class AddDataView(APIView):
                 basic_info = serializer.save()
                 cv = BasicInformation.objects.get(pk=basic_info.id)
                 template_id = cv.template.base
-                template = get_template(template_id)
+                template_full_url = os.path.join(settings.BASE_DIR, template_id)
+                template = get_template(template_full_url)
                 context = {'cv': cv}
                 html_content = template.render(context)
                 # Use Selenium to render the template
@@ -114,7 +115,8 @@ class CVPdf(APIView):
                 basic_info = serializer.save()
                 cv = BasicInformation.objects.get(pk=basic_info.id)
                 template_id = cv.template.base
-                template = get_template(template_id)
+                template_full_url = os.path.join(settings.BASE_DIR, template_id)
+                template = get_template(template_full_url)
                 context = {'cv': cv}
                 html_content = template.render(context)
 
