@@ -1,0 +1,430 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>Template5</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+            crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Arial&display=swap">
+    {#    <link rel="stylesheet" href="{% static 'css/template5.css' %}">#}
+    <style>
+        .container-fluid {
+            padding: 40px;
+        }
+
+        .header_div {
+            padding: 0px;
+            background: #222222;
+            height: 200px;
+
+        }
+
+        .header_div span {
+            color: #FFFFFF;
+            margin-right: 5px;
+        }
+
+        .header_div h6 {
+            color: #FFCB14;
+            font-size: 13px;
+            font-weight: 700;
+        }
+
+        .header_div h5 {
+            color: #FFFFFF;
+            font-size: 40px;
+            font-weight: 700;
+            margin-bottom: 0px;
+        }
+
+        .email_div h6 {
+            color: #666666;
+            font-size: 14px;
+            font-weight: 400;
+        }
+
+        .email_div span {
+            color: #73808D;
+            font-size: 14px;
+            font-weight: 700;
+        }
+
+        .email_div h5 {
+            color: #73808D;
+            font-weight: 700;
+            font-size: 14px;
+
+        }
+
+        .email_div h4 {
+            color: #73808D;
+            font-weight: 400;
+            font-size: 14px;
+
+        }
+
+        .left_data {
+            font-weight: 400;
+            font-size: 14px;
+            color: #73808D;
+        }
+
+        .rating {
+            display: flex;
+            margin: 0px;
+            padding: 0px;
+        }
+
+        .rating li {
+            list-style: none;
+            height: 8px;
+            width: 8px;
+            background: #E5E5E5;
+            border-radius: 50px;
+            margin: 0px 2px;
+        }
+
+        .active {
+            background: #F5C400 !important;
+        }
+
+        .objective_div {
+            padding-top: 9px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #EAEAEA
+        }
+
+        .objective_div h6 {
+            color: #040404;
+            font-weight: 700;
+            font-size: 14px;
+        }
+
+        .objective_div h5 {
+            color: #707070;
+            font-weight: 400;
+            font-size: 12px;
+        }
+
+        .objective_div h4 {
+            color: #040404;
+            font-weight: 500;
+            font-size: 14px;
+        }
+
+        .objective_div h3 {
+            color: #030B1A;
+            font-weight: 700;
+            font-size: 14px;
+        }
+
+        .objective_div span {
+            color: #707070E5;
+            font-weight: 400;
+            font-size: 14px;
+        }
+
+        .objective_div p {
+            color: #707070;
+            font-weight: 400;
+            font-size: 12px;
+        }
+
+        .objective_div h2 {
+            color: #707070;
+            font-weight: 500;
+            font-size: 11px;
+        }
+
+        .objective_div h2 span {
+            color: #70707099;
+            font-weight: 400;
+            font-size: 11px;
+        }
+
+        .objective_div h1 {
+            color: #040404;
+            font-weight: 700;
+            font-size: 10px;
+        }
+    </style>
+</head>
+<body>
+<div>
+    <div class="header_div">
+        <div class="container-fluid" style="padding: 0px 40px">
+            <div class="row">
+                <div class="col-12" style="height: 200px; display: flex;align-items: center">
+                    <div>
+                        <h6><span>-</span> UI/UX Designer</h6>
+                        <h5>Jos Buttler</h5>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid">
+        <div class="row email_div">
+            <div class="col-4">
+                <div>
+                    <h6><span>Email:</span>yourmail@gmail.com</h6>
+                    <h6><span>Website:</span>Josbuttler.com</h6>
+                    <h6><span>Contact:</span>yourmail@gmail.com</h6>
+                    <h6><span>Address:</span>yourmail@gmail.com</h6>
+                </div>
+                <div style="margin-top: 30px">
+                    <h5>Gender</h5>
+                    <h4>Male</h4>
+                </div>
+                <div style="margin-top: 30px">
+                    <h5>DOB </h5>
+                    <h4>24/Dec/2000</h4>
+                </div>
+                <div style="margin-top: 30px">
+                    <h5>Martial status</h5>
+                    <h4>Unmarried</h4>
+                </div>
+                <div style="margin-top: 30px">
+                    <h5>Driving License </h5>
+                    <h4>RN-18-2761</h4>
+                </div>
+                <div style="margin-top: 30px">
+                    <h5>Other Skills </h5>
+                    <div style="display: flex">
+                        <div style="width: 100px">
+                            <h2 class="left_data">HTML</h2>
+                        </div>
+                        <div style="width: 300px">
+                            <ul class="rating">
+                                <li class="active"></li>
+                                <li class="active"></li>
+                                <li class="active"></li>
+                                <li class="active"></li>
+                                <li class="active"></li>
+                                <li></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div style="display: flex">
+                        <div style="width: 100px">
+                            <h2 class="left_data">HTML</h2>
+                        </div>
+                        <div style="width: 300px">
+                            <ul class="rating">
+                                <li class="active"></li>
+                                <li class="active"></li>
+                                <li class="active"></li>
+                                <li class="active"></li>
+                                <li class="active"></li>
+                                <li></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div style="display: flex">
+                        <div style="width: 100px">
+                            <h2 class="left_data">HTML</h2>
+                        </div>
+                        <div style="width: 300px">
+                            <ul class="rating">
+                                <li class="active"></li>
+                                <li class="active"></li>
+                                <li class="active"></li>
+                                <li class="active"></li>
+                                <li class="active"></li>
+                                <li></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div style="margin-top: 30px">
+                    <h5>Languages </h5>
+                    <h4>French (native)</h4>
+                    <h4>French (native)</h4>
+                    <h4>French (native)</h4>
+                </div>
+                <div style="margin-top: 30px">
+                    <h5>Interests </h5>
+                    <h4>Hockey, Cricket, Painting</h4>
+                </div>
+                <div style="margin-top: 30px">
+                    <h5>Activities </h5>
+                    <h4>Gym</h4>
+                    <h4>Gym</h4>
+                    <h4>Gym</h4>
+                </div>
+            </div>
+            <div class="col-8" style="border-left: 1px solid #EAEAEA;padding-left: 25px">
+                <div style="height: 2px; width: 10px; background: #FFCB14;"></div>
+                <div class="objective_div">
+                    <h6>Objective</h6>
+                    <h5>Lorem ipsum dolor sit amet consectetur adipiscing elit volutpat vestibulum vitae cursus enim
+                        eget elit tincidunt mauris semper platea </h5>
+                </div>
+                <div style="height: 2px; width: 10px; background: #FFCB14;margin-top: 15px"></div>
+                <div class="objective_div">
+                    <h6>Work experience</h6>
+                    <div>
+                        <h4>Facebook</h4>
+                        <h3>Head of Business <span>- 2019  /  Present</span></h3>
+                        <p>Lorem ipsum dolor sit amet consectetur adipiscing elit vitae cursus enim eget elit
+                            tincidunt
+                            mauris, semper platea egestas tempus. </p>
+                    </div>
+                    <div style="margin-bottom: 25px">
+                        <h4>Facebook</h4>
+                        <h3>Head of Business <span>- 2019  /  Present</span></h3>
+                        <p>Lorem ipsum dolor sit amet consectetur adipiscing elit vitae cursus enim eget elit
+                            tincidunt
+                            mauris, semper platea egestas tempus. </p>
+                    </div>
+                    <div>
+                        <h4>Facebook</h4>
+                        <h3>Head of Business <span>- 2019  /  Present</span></h3>
+                        <p>Lorem ipsum dolor sit amet consectetur adipiscing elit vitae cursus enim eget elit
+                            tincidunt
+                            mauris, semper platea egestas tempus. </p>
+                    </div>
+                </div>
+                <div style="height: 2px; width: 10px; background: #FFCB14;margin-top: 15px"></div>
+                <div class="objective_div">
+                    <h6>Education</h6>
+                    <div class="row">
+                        <div class="col-4">
+                            <h2>Stanford <span> - 2017 / 2020</span></h2>
+                            <h1>Master of business</h1>
+                        </div>
+                        <div class="col-4">
+                            <h2>Stanford <span> - 2017 / 2020</span></h2>
+                            <h1>Master of business</h1>
+                        </div>
+                        <div class="col-4">
+                            <h2>Stanford <span> - 2017 / 2020</span></h2>
+                            <h1>Master of business</h1>
+                        </div>
+                    </div>
+
+
+                </div>
+                <div style="height: 2px; width: 10px; background: #FFCB14;margin-top: 15px"></div>
+                <div class="objective_div" style="border: none!important">
+                    <h6>Projects</h6>
+                    <div style="margin-bottom: 25px">
+                        <h3>Uber Case Study <span>-</span></h3>
+                        <p>Conducted a strategic case study on Uber, examining market trends and competitive
+                            analysis.
+                            Showcased analytical skills by deriving </p>
+                    </div>
+                    <div style="margin-bottom: 25px">
+                        <h3>Uber Case Study <span>-</span></h3>
+                        <p>Conducted a strategic case study on Uber, examining market trends and competitive
+                            analysis.
+                            Showcased analytical skills by deriving </p>
+                    </div>
+                    <div style="margin-bottom: 25px">
+                        <h3>Uber Case Study <span>-</span></h3>
+                        <p>Conducted a strategic case study on Uber, examining market trends and competitive
+                            analysis.
+                            Showcased analytical skills by deriving </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div style="height: 2px; width: 10px; background: #FFCB14;margin-top: 15px"></div>
+        <div class="objective_div" style="">
+            <h6>Achievements And awards</h6>
+            <div style="margin-bottom: 25px">
+                <h3>Employee of the year <span>-</span></h3>
+                <p>Recipient of Employee of the Year award, acknowledged for exceptional dedication, outstanding
+                    performance, and impactful contributions to Funsol technologies </p>
+            </div>
+        </div>
+        <div style="height: 2px; width: 10px; background: #FFCB14;margin-top: 15px"></div>
+        <div class="objective_div" style="">
+            <h6>Publications</h6>
+            <div style="margin-bottom: 25px">
+                <h3>Food Panda <span>-</span></h3>
+                <p>Recipient of Employee of the Year award, acknowledged for exceptional dedication, outstanding
+                    performance, and impactful contributions to Funsol technologies </p>
+            </div>
+        </div>
+        <div style="height: 2px; width: 10px; background: #FFCB14;margin-top: 15px"></div>
+        <div class="objective_div" style="">
+            <h6>Cover Letter</h6>
+            <div style="margin-bottom: 25px">
+                <p>Dear [Employer's Name],
+                    I am thrilled to apply for the [position] at [Company Name]. As the Employee of the Year at
+                    [Previous Company] and the author of a published case study on Food Panda, I bring a track
+                    record of
+                    excellence, dedication, and strategic insights. I am eager to contribute my skills to [Company
+                    Name].
+                </p>
+            </div>
+        </div>
+        <div style="height: 2px; width: 10px; background: #FFCB14;margin-top: 15px"></div>
+        <div class="objective_div" style="">
+            <h6>References</h6>
+            <div style="margin-bottom: 25px">
+                <div class="experience_div" style="margin-bottom: 30px">
+                    <h5 class="experience_desgnation">Ibrahim Bin Haroon<span
+                            style="font-weight: 400">(Lead UIUX Designer)</span></h5>
+                    <h6 class="experience_company"><span style="font-weight: 700">Company Name:</span> Funsol
+                        Technology
+                    </h6>
+                    <h6 class="experience_company"><span style="font-weight: 700">Email:</span> yourmail@gmail.com
+                    </h6>
+                    <h6 class="experience_company"><span style="font-weight: 700">Phone Number:</span> +33 6 33 33
+                        33 33
+                    </h6>
+                </div>
+                <div class="experience_div" style="margin-bottom: 30px">
+                    <h5 class="experience_desgnation">Ibrahim Bin Haroon<span
+                            style="font-weight: 400">(Lead UIUX Designer)</span></h5>
+                    <h6 class="experience_company"><span style="font-weight: 700">Company Name:</span> Funsol
+                        Technology
+                    </h6>
+                    <h6 class="experience_company"><span style="font-weight: 700">Email:</span> yourmail@gmail.com
+                    </h6>
+                    <h6 class="experience_company"><span style="font-weight: 700">Phone Number:</span> +33 6 33 33
+                        33 33
+                    </h6>
+                </div>
+                <div class="experience_div" style="margin-bottom: 30px">
+                    <h5 class="experience_desgnation">Ibrahim Bin Haroon<span
+                            style="font-weight: 400">(Lead UIUX Designer)</span></h5>
+                    <h6 class="experience_company"><span style="font-weight: 700">Company Name:</span> Funsol
+                        Technology
+                    </h6>
+                    <h6 class="experience_company"><span style="font-weight: 700">Email:</span> yourmail@gmail.com
+                    </h6>
+                    <h6 class="experience_company"><span style="font-weight: 700">Phone Number:</span> +33 6 33 33
+                        33 33
+                    </h6>
+                </div>
+
+            </div>
+        </div>
+        <div style="height: 2px; width: 10px; background: #FFCB14;margin-top: 15px"></div>
+        <div class="objective_div" style="">
+            <h6>Additional information</h6>
+            <div style="margin-bottom: 25px">
+                <p>Multilingual proficiency with fluency in [languages] and [proficiency level]. Holds
+                    [certifications]
+                    and excels in [technical skills]. Published author of a case study on [topic] and recipient of
+                    [awards], demonstrating a well-rounded and accomplished professional background.
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

@@ -1,83 +1,124 @@
+
 body {
     font-family: 'Arial', sans-serif;
 }
-.container-fluid{
+
+.container-fluid {
     margin: 50px;
 }
+
 .name {
-    font-size: 28px;
+    font-size: 30px;
     font-weight: 700;
     margin-bottom: 0px;
 }
-.first_name{
+
+.first_name {
     color: #F5C400;
 }
-.last_name{
+
+.last_name {
     color: #101214;
 }
-.main_designation{
+
+.main_designation {
     color: #101214;
     font-size: 22px;
     font-weight: 400;
     margin-bottom: 0px;
 }
-.main_heading h2{
+
+.main_heading h2 {
     margin-top: 30px;
     color: #73808D;
     font-size: 12px;
     font-weight: 400;
 
 }
-.experience_desgnation{
+
+.experience_desgnation {
     color: #101214;
-    font-size: 15px;
+    font-size: 16px;
     font-weight: 700;
 }
-.experience_company{
+
+.experience_company {
     color: #101214;
-    font-size: 15px;
+    font-size: 16px;
     font-weight: 400;
+    text-align: justify;
 }
-.experience_date{
+
+.experience_date {
     color: #73808D;
-    font-size: 7px;
-    font-weight: 400;
-}
-.experience_description{
-    color: #101214;
-    font-size: 11px;
+    font-size: 10px;
     font-weight: 400;
 }
 
+.experience_description {
+    color: #101214;
+    font-size: 16px;
+    font-weight: 400;
+    text-align: justify;
+}
 
-.education_name{
+
+.education_name {
     color: #101214;
-    font-size: 11px;
+    font-size: 16px;
     font-weight: 400;
 }
-.education_date{
+
+.education_date {
     color: #73808D;
-    font-size: 7px;
+    font-size: 10px;
     font-weight: 400;
 }
-.education_school{
+
+.education_school {
     color: #101214;
-    font-size: 11px;
+    font-size: 16px;
     font-weight: 400;
 }
-.left_data{
+
+.left_data {
     font-weight: 400;
-    font-size: 11px;
+    font-size: 16px;
     color: #73808D;
 }
-.left_headings{
+
+.left_headings {
     font-weight: 700;
-    font-size: 11px;
+    font-size: 16px;
     color: #73808D;
 }
-.basic_info{
+
+.industry {
+    margin-bottom: 20px;
+
+}
+.rating{
+    display: flex;
+    margin: 0px;
+    padding: 0px;
+}
+.rating li{
+    list-style: none;
+    height: 18px;
+    width: 18px;
+    background: #E5E5E5;
+    border-radius: 50px;
+    margin: 0px 2px;
+}
+.active{
+    background: #F5C400!important;
+}
+.basic_info {
     margin-top: 30px;
 }
-.image img{
+
+.image img {
     border-radius: 50px;
+    height: 88px;
+    width: 88px;
 }

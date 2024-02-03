@@ -1,0 +1,85 @@
+body {
+    font-family: 'Lora', serif;
+    background: #000;
+}
+
+.container-fluid {
+    padding: 40px;
+}
+
+.header_div h6 {
+    font-size: 30px;
+    font-weight: 700;
+    color: #fff;
+}
+
+.header_div span {
+    font-size: 30px;
+    font-weight: 700;
+    color: #40C6FF;
+}
+
+.header_div h5 {
+    font-size: 30px;
+    font-weight: 700;
+    color: #40C6FF;
+}
+
+.main_div h6 {
+    font-size: 15px;
+    font-weight: 700;
+    color: #40C6FF;
+    margin-bottom: 16px;
+}
+
+.main_div h5 {
+    font-size: 12px;
+    font-weight: 400;
+    color: #FFFFFF;
+    margin-bottom: 8px;
+}
+
+.header_div {
+    margin-bottom: 30px;
+}
+
+.rating {
+    display: flex;
+    margin: 0px;
+    padding: 0px;
+}
+
+.rating li {
+    list-style: none;
+    height: 8px;
+    width: 8px;
+    background: #E5E5E5;
+    border-radius: 50px;
+    margin: 0px 2px;
+}
+
+.active {
+    background: #005BA2 !important;
+}
+.main_div p {
+    font-size: 12px;
+    font-weight: 400;
+    color: #E0E0E0;
+}
+.main_div h4 {
+    font-size: 15px;
+    font-weight: 700;
+    color: #fff;
+}
+.main_div h4 span{
+    font-size: 15px;
+    font-weight: 500;
+    color: #fff;
+}
+.main_div h3{
+    font-size: 11px;
+    font-weight: 400;
+    color: #fff;
+    font-style: italic;
+
+}

@@ -1,0 +1,396 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>Template5</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+            crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&display=swap">
+
+    {#    <link rel="stylesheet" href="{% static 'css/template9.css' %}">#}
+    <style>
+        body {
+            font-family: 'Space Grotesk', sans-serif;
+        }
+
+        .container-fluid {
+            padding: 30px 50px;
+        }
+
+        .header_div h6 {
+            font-size: 30px;
+            font-weight: 700;
+            color: #D74353;
+        }
+
+        .header_div {
+            margin-bottom: 30px;
+        }
+
+        .header_div h5 {
+            font-size: 24px;
+            font-weight: 400;
+            color: #000;
+        }
+
+        .header_div h4 {
+            font-size: 14px;
+            font-weight: 500;
+            color: #000;
+            text-align: end;
+        }
+
+        .main_div h6 {
+            font-size: 14px;
+            font-weight: 700;
+            color: #D74353;
+        }
+
+        .main_div h5 {
+            font-size: 12px;
+            font-weight: 700;
+            color: #000;
+        }
+
+        .main_div p {
+            font-size: 12px;
+            font-weight: 400;
+            color: #454545;
+        }
+
+        .main_div h4 {
+            font-size: 12px;
+            font-weight: 400;
+            color: #000;
+        }
+
+        .main_div h3 {
+            font-size: 10px;
+            font-weight: 400;
+            color: #000;
+        }
+
+        .main_div {
+            margin-bottom: 30px;
+        }
+
+        .main_div h2 {
+            font-size: 10px;
+            font-weight: 700;
+            color: #000;
+        }
+
+        .main_div h2 span {
+            font-size: 10px;
+            font-weight: 400;
+            color: #454545;
+        }
+
+        .rating {
+            display: flex;
+            margin: 0px;
+            padding: 0px;
+        }
+
+        .rating li {
+            list-style: none;
+            height: 8px;
+            width: 8px;
+            background: #E5E5E5;
+            border-radius: 50px;
+            margin: 0px 2px;
+        }
+
+        .active {
+            background: #005BA2 !important;
+        }
+    </style>
+</head>
+<body>
+<div class="container-fluid">
+    <div class="row header_div">
+        <div class="col-6">
+            <h6>Jofra Archer</h6>
+            <h5>Product Designer</h5>
+        </div>
+        <div class="col-6" style="display: flex;justify-content: end">
+            <div>
+                <h4>yourname.design</h4>
+                <h4>yourname@gmail.com</h4>
+                <h4>+91 432 2222 322</h4>
+                <h4>502 Kennwood Avenue Merritt Island FL</h4>
+            </div>
+        </div>
+    </div>
+    <div class="row main_div">
+        <div class="col-3">
+            <h6>Objective</h6>
+        </div>
+        <div class="col-3">
+            <h5>About me</h5>
+        </div>
+        <div class="col-6">
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vel eu vulputate et id morbi proin quam eget
+                aliquam pellentesque congue massa mattis fringilla platea.
+            </p>
+        </div>
+    </div>
+    <div class="row main_div">
+        <div class="col-3">
+            <h6>Experience</h6>
+        </div>
+        <div class="col-3">
+            <h5>ABC Company</h5>
+            <h4>UX Design Intern</h4>
+            <h3>Jan 2023 - Present</h3>
+        </div>
+        <div class="col-6">
+            <ul>
+                <li>
+                    <p>
+                        Conducted user research and analyzed data to identify design opportunities and inform design
+                        decisions
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        Collaborated with cross-functional teams to create wireframes, prototypes, and high-fidelity
+                        mockups
+                    </p>
+                </li>
+            </ul>
+
+        </div>
+    </div>
+    <div class="row main_div">
+        <div class="col-3">
+            <h6>Education</h6>
+        </div>
+        <div class="col-3">
+            <h5>School of Design</h5>
+            <h4>UX Design Bootcamp</h4>
+            <h3>Jan 2023 - Feb 2023</h3>
+        </div>
+        <div class="col-6">
+            <ul>
+                <li>
+                    <p>
+                        Intensive, full-time program that provided hands-on training in user-centered design,
+                        prototyping, and visual design
+                    </p>
+                </li>
+            </ul>
+
+        </div>
+    </div>
+    <div class="row main_div">
+        <div class="col-3">
+            <h6>Projects</h6>
+        </div>
+        <div class="col-3">
+            <h5>XYZ Project</h5>
+            <h4>Freelance Designer</h4>
+            <h3>Jun 2022 - Dec 2022</h3>
+        </div>
+        <div class="col-6">
+            <ul>
+                <li>
+                    <p>
+                        Designed wireframes, prototypes, and visual designs for mobile and web-based products
+                    </p>
+                </li>
+                <li>
+                    <p>
+                        Conducted usability testing and iterated on design solutions based on user feedback
+                    </p>
+                </li>
+            </ul>
+
+        </div>
+    </div>
+    <div class="row main_div">
+        <div class="col-3">
+            <h6>Achievements And awards</h6>
+        </div>
+        <div class="col-3">
+            <h5>Employee of the year</h5>
+        </div>
+        <div class="col-6">
+            <p>
+                Recipient of Employee of the Year award, acknowledged for exceptional dedication, outstanding
+                performance, and
+            </p>
+
+        </div>
+    </div>
+    <div class="row main_div">
+        <div class="col-3">
+            <h6>Publications</h6>
+        </div>
+        <div class="col-3">
+            <h5>Food Panda</h5>
+        </div>
+        <div class="col-6">
+            <p>
+                Published a comprehensive case study on Food Panda, examining market trends and strategic insights.
+                Contributed
+            </p>
+
+        </div>
+    </div>
+    <div class="row main_div">
+        <div class="col-3">
+            <h6>References</h6>
+        </div>
+        <div class="col-3">
+            <h5>Ibrahim Bin Haroon</h5>
+            <h4>(Lead UIUX Designer)</h4>
+        </div>
+        <div class="col-6">
+            <h2>Company Name: <span>Funsol Technology</span></h2>
+            <h2>Email: <span>yourmail@gmail.com</span></h2>
+            <h2>Phone Number: <span>+33 6 33 33 33 33</span></h2>
+
+        </div>
+    </div>
+    <div class="row main_div">
+        <div class="col-3">
+            <h6>Skills</h6>
+        </div>
+        <div class="col-3">
+            <ul>
+                <li><h4>HTML</h4></li>
+                <li><h4>CSS</h4></li>
+                <li><h4>jQuery</h4></li>
+            </ul>
+        </div>
+        <div class="col-6">
+            <div style="width: 300px; margin-bottom: 20px">
+                <ul class="rating">
+                    <li class="active"></li>
+                    <li class="active"></li>
+                    <li class="active"></li>
+                    <li class="active"></li>
+                    <li class="active"></li>
+                    <li></li>
+                </ul>
+            </div>
+            <div style="width: 300px; margin-bottom: 20px">
+                <ul class="rating">
+                    <li class="active"></li>
+                    <li class="active"></li>
+                    <li class="active"></li>
+                    <li class="active"></li>
+                    <li class="active"></li>
+                    <li></li>
+                </ul>
+            </div>
+            <div style="width: 300px">
+                <ul class="rating">
+                    <li class="active"></li>
+                    <li class="active"></li>
+                    <li class="active"></li>
+                    <li class="active"></li>
+                    <li class="active"></li>
+                    <li></li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+    <div class="row main_div">
+        <div class="col-3">
+            <h6>Languages</h6>
+        </div>
+        <div class="col-3">
+            <ul>
+                <li><h4>English </h4></li>
+                <li><h4>English </h4></li>
+                <li><h4>English </h4></li>
+            </ul>
+        </div>
+        <div class="col-6">
+            <div style="width: 300px; margin-bottom: 20px">
+                <ul class="rating">
+                    <li class="active"></li>
+                    <li class="active"></li>
+                    <li class="active"></li>
+                    <li class="active"></li>
+                    <li class="active"></li>
+                    <li></li>
+                </ul>
+            </div>
+            <div style="width: 300px; margin-bottom: 20px">
+                <ul class="rating">
+                    <li class="active"></li>
+                    <li class="active"></li>
+                    <li class="active"></li>
+                    <li class="active"></li>
+                    <li class="active"></li>
+                    <li></li>
+                </ul>
+            </div>
+            <div style="width: 300px">
+                <ul class="rating">
+                    <li class="active"></li>
+                    <li class="active"></li>
+                    <li class="active"></li>
+                    <li class="active"></li>
+                    <li class="active"></li>
+                    <li></li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+    <div class="row main_div">
+        <div class="col-3">
+            <h6>Interests</h6>
+        </div>
+        <div class="col-3">
+            <ul>
+                <li><h4>Cricket </h4></li>
+                <li><h4>Cricket </h4></li>
+            </ul>
+        </div>
+        <div class="col-6">
+
+
+        </div>
+    </div>
+    <div class="row main_div">
+        <div class="col-3">
+            <h6>Cover Letter</h6>
+        </div>
+        <div class="col-9">
+            <h4>
+                Dear [Employer's Name],
+                I am thrilled to apply for the [position] at [Company Name]. AsI am thrilled to apply
+            </h4>
+        </div>
+    </div>
+    <div class="row main_div">
+        <div class="col-3">
+            <h6>Additional information</h6>
+        </div>
+        <div class="col-9">
+            <h4>
+                Multilingual proficiency with fluency in [languages] and [proficiency level]. Holds [certifications] and
+                excels in
+            </h4>
+        </div>
+    </div>
+
+</div>
+</body>
+</html>

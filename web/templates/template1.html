@@ -17,6 +17,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Arial&display=swap">
     <link rel="stylesheet" href="{% static 'css/template1.css' %}">
     <style>
+
         body {
             font-family: 'Arial', sans-serif;
         }
@@ -64,6 +65,7 @@
             color: #101214;
             font-size: 16px;
             font-weight: 400;
+            text-align: justify;
         }
 
         .experience_date {
@@ -76,6 +78,7 @@
             color: #101214;
             font-size: 16px;
             font-weight: 400;
+            text-align: justify;
         }
 
 
@@ -109,6 +112,31 @@
             color: #73808D;
         }
 
+        .industry {
+            margin-bottom: 20px;
+            padding-left: 10px;
+
+        }
+
+        .rating {
+            display: flex;
+            margin: 0px;
+            padding: 0px;
+        }
+
+        .rating li {
+            list-style: none;
+            height: 18px;
+            width: 18px;
+            background: #E5E5E5;
+            border-radius: 50px;
+            margin: 0px 2px;
+        }
+
+        .active {
+            background: #F5C400 !important;
+        }
+
         .basic_info {
             margin-top: 30px;
         }
@@ -118,87 +146,245 @@
             height: 88px;
             width: 88px;
         }
-    </style>
 
+    </style>
 
 </head>
 <body>
 <div class="container-fluid">
-    <div class="row">
-        <div class="col-8">
-            <div class="name_div">
-                <h2 class="name"><span class="first_name">{{ cv.first_name }}</span> <span
-                        class="last_name">{{ cv.last_name }}</span></h2>
-                <h2 class="main_designation">{{ cv.designation }}</h2>
-            </div>
-            <div class="main_heading">
-                <h2>EXPERIENCE</h2>
-            </div>
-            {% for experience in cv.experiences.all %}
-                <div class="experience_div">
-                    <h6 class="experience_desgnation">{{ experience.designation }}</h6>
-                    <h5 class="experience_company">{{ experience.company_name }}</h5>
-                    <h4 class="experience_date">{{ experience.start_at }} - {{ experience.end_at }} - 1
-                        year, {{ experience.location }}</h4>
-                    <h3 class="experience_description">{{ experience.description }}</h3>
+    <div>
+        <div class="row">
+            <div class="col-8">
+                <div class="name_div">
+                    <h2 class="name"><span class="first_name">{{ cv.first_name }}</span> <span
+                            class="last_name">{{ cv.last_name }}</span></h2>
+                    <h2 class="main_designation">{{ cv.designation }}</h2>
                 </div>
-            {% endfor %}
-            <div class="main_heading">
-                <h2>ERDUCATION</h2>
             </div>
-            {% for edu in cv.educations.all %}
+            <div class="col-4">
+                <div class="image">
+                    <img src="https://cognise.art//media/txt2img/663b4c80-31c8-4ebe-8985-a56c2134dceb.png">
+                    {#                <img src="{% static 'test.svg' %}">#}
+                </div>
+            </div>
+            <div class="main_heading col-10">
+                <h2>Objective</h2>
+                <h6 class="experience_company">Lorem ipsum dolor sit amet consectetur adipiscing elit volutpat
+                    vestibulum
+                    vitae cursus enim eget elit tincidunt mauris semper platea egestas tempus pellentesque quam
+                    neque.</h6>
+            </div>
+            <div class="col-8 ">
+                <div class="main_heading">
+                    <h2>EXPERIENCE</h2>
+                </div>
+                {% for experience in cv.experiences.all %}
+                    <div class="experience_div">
+                        <h6 class="experience_desgnation">{{ experience.designation }}</h6>
+                        <h5 class="experience_company">{{ experience.company_name }}</h5>
+                        <h4 class="experience_date">{{ experience.start_at }} - {{ experience.end_at }} - 1
+                            year, {{ experience.location }}</h4>
+                        <h3 class="experience_description">{{ experience.description }}</h3>
+                    </div>
+                {% endfor %}
+                <div class="main_heading">
+                    <h2>ERDUCATION</h2>
+                </div>
+                {% for edu in cv.educations.all %}
+                    <div class="education_div">
+                        <h6 class="experience_desgnation">{{ edu.name }}</h6>
+                        <h5 class="education_school">{{ edu.school }}</h5>
+                        <h4 class="education_date">{{ edu.start_at }} - {{ edu.end_at }} - 1
+                            year, {{ edu.location }}</h4>
+                    </div>
+                {% endfor %}
+                <div class="main_heading">
+                    <h2>EXPERIENCE</h2>
+                </div>
                 <div class="education_div">
-                    <h6 class="education_name">{{ edu.name }}</h6>
-                    <h5 class="education_school">{{ edu.school }}</h5>
-                    <h4 class="education_date">{{ edu.start_at }} - {{ edu.end_at }} - 1 year, {{ edu.location }}</h4>
+                    <h5 class="experience_desgnation">Uber Case Study</h5>
+                    <h6 class="experience_company">Conducted a strategic case study on Uber, examining market trends and
+                        competitive analysis. Showcased analytical skills by deriving </h6>
                 </div>
-            {% endfor %}
+                <div class="education_div">
+                    <h5 class="experience_desgnation">Ai Art generator</h5>
+                    <h6 class="experience_company">Authored a case study on an AI Art Generator App, emphasizing its
+                        innovative features and transformative impact on user interaction and creativity.</h6>
+                </div>
+            </div>
+
+            <div class="col-4" >
+                <div class="industry" style="margin-top: 30px">
+                    <h2 class="left_headings">Gender</h2>
+                    <h2 class="left_data">Male</h2>
+                </div>
+                <div class="industry">
+                    <h2 class="left_headings">DOB</h2>
+                    <h2 class="left_data" style="width: 80%">
+                        24/Dec/2000
+                    </h2>
+
+                </div>
+                <div class="industry">
+                    <h2 class="left_headings">Martial status</h2>
+                    <h2 class="left_data" style="width: 80%">
+                        Unmarried
+                    </h2>
+
+                </div>
+                <div class="industry">
+                    <h2 class="left_headings">Driving License </h2>
+
+                    <h2 class="left_data">RN-18-2761</h2>
+                </div>
+                <div class="industry">
+                    <h2 class="left_headings">Other Skills</h2>
+                    <div style="display: flex">
+                        <div style="width: 100px">
+                            <h2 class="left_data">HTML</h2>
+                        </div>
+                        <div style="width: 300px">
+                            <ul class="rating">
+                                <li class="active"></li>
+                                <li class="active"></li>
+                                <li class="active"></li>
+                                <li class="active"></li>
+                                <li class="active"></li>
+                                <li></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div style="display: flex">
+                        <div style="width: 100px">
+                            <h2 class="left_data">HTML</h2>
+                        </div>
+                        <div style="width: 300px">
+                            <ul class="rating">
+                                <li class="active"></li>
+                                <li class="active"></li>
+                                <li class="active"></li>
+                                <li class="active"></li>
+                                <li class="active"></li>
+                                <li></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="industry">
+                    <h2 class="left_headings">Languages</h2>
+
+                    <h2 class="left_data">French (native)</h2>
+                    <h2 class="left_data">French (native)</h2>
+                </div>
+                <div class="industry">
+                    <h2 class="left_headings">Interests</h2>
+                    <h2 class="left_data">Hockey, Cricket, Painting</h2>
+                </div>
+                <div class="industry">
+                    <h2 class="left_headings">Gym</h2>
+                    <h2 class="left_headings">Gym</h2>
+                </div>
+                <div class="industry">
+                    <h2 class="left_headings">Email:<span class="left_data">yourmail@gmail.com</span></h2>
+                    <h2 class="left_headings">Email:<span class="left_data">yourmail@gmail.com</span></h2>
+                    <h2 class="left_headings">Email:<span class="left_data">yourmail@gmail.com</span></h2>
+                    <h2 class="left_headings">Email:<span class="left_data">yourmail@gmail.com</span></h2>
+
+                </div>
+            </div>
         </div>
-        <div class="col-4">
-            <div class="image">
-                <img src="https://media.istockphoto.com/id/535695503/photo/pakistan-monument-islamabad.jpg?s=612x612&w=0&k=20&c=bNqjdf8L-5igcRB89DdMgx0kNOmyeo1J_zzXmoxxl8w=">
-                {#                <img src="{% static 'test.svg' %}">#}
+        <div class="row">
+            <div class="col-10">
+                <div class="main_heading">
+                    <h2>ACHIEVEMENTS AND AWARDS</h2>
+                </div>
+                <div class="experience_div">
+                    <h5 class="experience_desgnation">Employee of the year</h5>
+                    <h6 class="experience_company">Conducted a strategic case study on Uber, examining market trends and
+                        competitive analysis. Showcased analytical skills by deriving </h6>
+                </div>
+                <div class="experience_div">
+                    <h5 class="experience_desgnation">Employee of the year</h5>
+                    <h6 class="experience_company">Conducted a strategic case study on Uber, examining market trends and
+                        competitive analysis. Showcased analytical skills by deriving </h6>
+                </div>
             </div>
-            <div class="basic_info">
-                <h2 class="left_data">{{ cv.cv_email }}</h2>
-                <h2 class="left_data">{{ cv.phone }}</h2>
-                <h2 class="left_data">{{ cv.address }}</h2>
+            <div class="col-10">
+                <div class="main_heading">
+                    <h2>PUBLICATIONS</h2>
+                </div>
+                <div class="experience_div">
+                    <h5 class="experience_desgnation">Food Panda</h5>
+                    <h6 class="experience_company">Published a comprehensive case study on Food Panda, examining market
+                        trends and strategic insights. Contributed valuable perspectives to the field by highlighting
+                        innovative approaches and best </h6>
+                </div>
+                <div class="experience_div">
+                    <h5 class="experience_desgnation">Food Panda</h5>
+                    <h6 class="experience_company">Published a comprehensive case study on Food Panda, examining market
+                        trends and strategic insights. Contributed valuable perspectives to the field by highlighting
+                        innovative approaches and best </h6>
+                </div>
             </div>
-            <div class="industry">
-                <h2 class="left_headings">Industry Knowledge</h2>
-                {% for indus in cv.industry_knowledge.all %}
-                    <h2 class="left_data">{{ indus.name }}</h2>
-                {% endfor %}
-            </div>
-            <div class="industry">
-                <h2 class="left_headings">Tools & Technologies</h2>
-                <h2 class="left_data" style="width: 80%">
-                    {% for tool in cv.tools.all %}
-                        {{ tool.name }}{% if not forloop.last %}, {% endif %}
-                    {% endfor %}
-                </h2>
+            <div class="col-10">
+                <div class="main_heading">
+                    <h2>COVER LETTER</h2>
+                </div>
+                <div class="experience_div">
+                    <h6 class="experience_company">Dear [Employer's Name],
+                        I am thrilled to apply for the [position] at [Company Name]. As the Employee of the Year at
+                        [Previous Company] and the author of a published case study on Food Panda, I bring a track
+                        record of
+                        excellence, dedication, and strategic insights. I am eager to contribute my skills to [Company
+                        Name].
+                    </h6>
+                </div>
 
             </div>
-            <div class="industry">
-                <h2 class="left_headings">Other Skills</h2>
-                <h2 class="left_data" style="width: 80%">
-                    {% for skill in cv.other_skills.all %}
-                        {{ skill.name }}{% if not forloop.last %}, {% endif %}
-                    {% endfor %}
-                </h2>
+            <div class="col-10">
+                <div class="main_heading">
+                    <h2>REFERENCES</h2>
+                </div>
+                <div class="experience_div" style="margin-bottom: 30px">
+                    <h5 class="experience_desgnation">Ibrahim Bin Haroon<span
+                            style="font-weight: 400">(Lead UIUX Designer)</span></h5>
+                    <h6 class="experience_company"><span style="font-weight: 700">Company Name:</span> Funsol Technology
+                    </h6>
+                    <h6 class="experience_company"><span style="font-weight: 700">Email:</span> yourmail@gmail.com</h6>
+                    <h6 class="experience_company"><span style="font-weight: 700">Phone Number:</span> +33 6 33 33 33 33
+                    </h6>
+                </div>
+                <div class="experience_div" style="margin-bottom: 30px">
+                    <h5 class="experience_desgnation">Ibrahim Bin Haroon<span
+                            style="font-weight: 400">(Lead UIUX Designer)</span></h5>
+                    <h6 class="experience_company"><span style="font-weight: 700">Company Name:</span> Funsol Technology
+                    </h6>
+                    <h6 class="experience_company"><span style="font-weight: 700">Email:</span> yourmail@gmail.com</h6>
+                    <h6 class="experience_company"><span style="font-weight: 700">Phone Number:</span> +33 6 33 33 33 33
+                    </h6>
+                </div>
+                <div class="experience_div">
+                    <h5 class="experience_desgnation">Ibrahim Bin Haroon<span
+                            style="font-weight: 400">(Lead UIUX Designer)</span></h5>
+                    <h6 class="experience_company"><span style="font-weight: 700">Company Name:</span> Funsol Technology
+                    </h6>
+                    <h6 class="experience_company"><span style="font-weight: 700">Email:</span> yourmail@gmail.com</h6>
+                    <h6 class="experience_company"><span style="font-weight: 700">Phone Number:</span> +33 6 33 33 33 33
+                    </h6>
+                </div>
 
             </div>
-            <div class="industry">
-                <h2 class="left_headings">Languages</h2>
-                {% for lang in cv.languages.all %}
-                    <h2 class="left_data">{{ lang.name }} ({{ lang.proficiency }})</h2>
-                {% endfor %}
-            </div>
-            <div class="industry">
-                <h2 class="left_headings">Social</h2>
-                <h2 class="left_data">yoursite.com</h2>
-                <h2 class="left_data">yoursite.com</h2>
-                <h2 class="left_data">yoursite.com</h2>
+            <div class="col-10">
+                <div class="main_heading">
+                    <h2>ADDITIONAL INFORMATION</h2>
+                </div>
+                <div class="experience_div">
+                    <h6 class="experience_company">Multilingual proficiency with fluency in [languages] and [proficiency
+                        level]. Holds [certifications] and excels in [technical skills]. Published author of a case
+                        study on
+                        [topic] and recipient of [awards],
+                    </h6>
+                </div>
 
             </div>
         </div>

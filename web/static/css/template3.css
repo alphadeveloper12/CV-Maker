@@ -1,0 +1,136 @@
+.container-fluid {
+    padding: 40px;
+}
+
+.name_div img {
+    width: 70px;
+    height: 73px;
+    border-radius: 10px;
+}
+
+.name_div h6 {
+    font-size: 24px;
+    font-weight: 600;
+    color: #1A1A1A;
+}
+
+.name_div h5 {
+    font-size: 24px;
+    font-weight: 600;
+    color: #E7B800;
+    margin-bottom: 0px;
+}
+
+.left_headings {
+    color: #272727;
+    font-size: 16px;
+    font-weight: 400;
+
+}
+
+svg {
+    margin-right: 10px;
+}
+
+.left_headings span {
+    text-align: center;
+}
+.information_div{
+    padding: 30px;
+    border-bottom: 1px solid #ECECEC;
+}
+.information_div h6 {
+    font-size: 16px;
+    font-weight: 500;
+    color: #E7B800;
+    margin-bottom: 10px;
+}
+
+.information_div h5 {
+    font-size: 12px;
+    font-weight: 700;
+    color: #73808D;
+    margin-bottom: 10px;
+}
+
+.information_div span {
+    font-weight: 400;
+    font-size: 12px;
+    color: #73808D;
+}
+
+.left_data {
+    font-weight: 400;
+    font-size: 14px;
+    color: #73808D;
+}
+
+.rating {
+    display: flex;
+    margin: 0px;
+    padding: 0px;
+}
+
+.rating li {
+    list-style: none;
+    height: 8px;
+    width: 8px;
+    background: #E5E5E5;
+    border-radius: 50px;
+    margin: 0px 2px;
+}
+
+.active {
+    background: #F5C400 !important;
+}
+.information_div h4{
+    font-size: 18px;
+    font-weight: 600;
+    color: #E7B800;
+}
+.information_div p{
+    font-size: 14px;
+    font-weight: 400;
+    color: #848484;
+}
+.information_div h3{
+    font-size: 13px;
+    font-weight: 600;
+    color: #1A1A1A;
+
+}
+.information_div h3 span{
+    font-size: 13px;
+    font-weight: 400;
+    color: #848484;
+    margin-left: 10px;
+}
+.information_div h2{
+    font-size: 14px;
+    font-weight: 400;
+    color: #848484;
+}
+.experience{
+    margin-bottom: 15px;
+}
+.experience h6{
+    font-size: 14px;
+    font-weight: 600;
+    color: #1A1A1A;
+}
+.experience h5{
+    color: #1A1A1A;
+    font-size: 12px;
+    font-weight: 500;
+
+}
+.experience h5 span{
+    color: #848484;
+    font-weight: 400;
+    margin-left: 10px;
+}
+.information_div h1{
+    font-size: 14px;
+    font-weight: 700;
+    color: #030B1A;
+}

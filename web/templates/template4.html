@@ -1,0 +1,487 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>Template3</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+            crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Arial&display=swap">
+    {#    <link rel="stylesheet" href="{% static 'css/template3.css' %}">#}
+    <style>
+        .container-fluid {
+            padding: 40px;
+        }
+
+        .name_div img {
+            width: 70px;
+            height: 73px;
+            border-radius: 10px;
+        }
+
+        .name_div h6 {
+            font-size: 24px;
+            font-weight: 600;
+            color: #1A1A1A;
+        }
+
+        .name_div h5 {
+            font-size: 24px;
+            font-weight: 600;
+            color: #E7B800;
+            margin-bottom: 0px;
+        }
+
+        .left_headings {
+            color: #272727;
+            font-size: 16px;
+            font-weight: 400;
+
+        }
+
+        svg {
+            margin-right: 5px;
+        }
+
+        .left_headings span {
+            text-align: center;
+        }
+
+        .information_div {
+            padding: 30px 0px;
+            border-bottom: 1px solid #ECECEC;
+        }
+
+        .information_div h6 {
+            font-size: 16px;
+            font-weight: 500;
+            color: #E7B800;
+            margin-bottom: 10px;
+        }
+
+        .information_div h5 {
+            font-size: 12px;
+            font-weight: 700;
+            color: #73808D;
+            margin-bottom: 10px;
+        }
+
+        .information_div span {
+            font-weight: 400;
+            font-size: 12px;
+            color: #73808D;
+        }
+
+        .left_data {
+            font-weight: 400;
+            font-size: 14px;
+            color: #73808D;
+        }
+
+        .rating {
+            display: flex;
+            margin: 0px;
+            padding: 0px;
+        }
+
+        .rating li {
+            list-style: none;
+            height: 8px;
+            width: 8px;
+            background: #E5E5E5;
+            border-radius: 50px;
+            margin: 0px 2px;
+        }
+
+        .active {
+            background: #F5C400 !important;
+        }
+
+        .information_div h4 {
+            font-size: 18px;
+            font-weight: 600;
+            color: #E7B800;
+        }
+
+        .information_div p {
+            font-size: 14px;
+            font-weight: 400;
+            color: #848484;
+        }
+
+        .information_div h3 {
+            font-size: 13px;
+            font-weight: 600;
+            color: #1A1A1A;
+
+        }
+
+        .information_div h3 span {
+            font-size: 13px;
+            font-weight: 400;
+            color: #848484;
+            margin-left: 10px;
+        }
+
+        .information_div h2 {
+            font-size: 14px;
+            font-weight: 400;
+            color: #848484;
+        }
+
+        .experience {
+            margin-bottom: 15px;
+        }
+
+        .experience h6 {
+            font-size: 14px;
+            font-weight: 600;
+            color: #1A1A1A;
+        }
+
+        .experience h5 {
+            color: #1A1A1A;
+            font-size: 12px;
+            font-weight: 500;
+
+        }
+
+        .experience h5 span {
+            color: #848484;
+            font-weight: 400;
+            margin-left: 10px;
+        }
+
+        .information_div h1 {
+            font-size: 14px;
+            font-weight: 700;
+            color: #030B1A;
+        }
+    </style>
+</head>
+<body>
+<div class="container-fluid">
+    <div>
+        <div class="row">
+            <div class="col-8">
+                <div class="name_div row" style="display: flex;align-items: center">
+
+                    <div class="col-12">
+                        <h6>
+                            Hello, I am Smith Hodge<br>
+                            A <span style="color: #E7B800">
+                            Product Designer.
+                        </span>
+                        </h6>
+                    </div>
+                </div>
+            </div>
+            <div class="col-4" style="display: flex;justify-content: end">
+                <div class="industry">
+                    <h2 class="left_headings">
+                        <svg width="15" height="12" viewBox="0 0 15 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12.9302 11.0959H1.99418C1.44539 11.0959 1 10.6436 1 10.0863V2.00959C1 1.4523 1.44539 1 1.99418 1H12.9302C13.479 1 13.9244 1.4523 13.9244 2.00959V10.0863C13.9244 10.6436 13.479 11.0959 12.9302 11.0959Z"
+                                  stroke="#1A1A1A" stroke-width="1.2" stroke-miterlimit="10"/>
+                            <path d="M1.34961 1.75125L7.46184 6.04807L13.5741 1.75024" stroke="#1A1A1A"
+                                  stroke-width="1.2" stroke-miterlimit="10"/>
+                        </svg>
+                        <span>Your@name.com</span>
+                    </h2>
+                    <h2 class="left_headings">
+                        <svg width="13" height="13" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M11.7298 9.04948V10.668C11.7304 10.8183 11.6996 10.967 11.6394 11.1046C11.5792 11.2423 11.4909 11.3659 11.3802 11.4675C11.2695 11.569 11.1388 11.6464 10.9964 11.6945C10.8541 11.7427 10.7033 11.7605 10.5536 11.747C8.89348 11.5666 7.29879 10.9993 5.8977 10.0907C4.59416 9.2624 3.48898 8.15723 2.66066 6.85369C1.74889 5.44623 1.18147 3.84378 1.00438 2.17617C0.990897 2.02698 1.00863 1.87662 1.05644 1.73466C1.10426 1.59269 1.18111 1.46224 1.2821 1.35161C1.38309 1.24097 1.50601 1.15258 1.64304 1.09205C1.78007 1.03152 1.9282 1.00019 2.078 1.00005H3.69651C3.95834 0.997475 4.21217 1.09019 4.41069 1.26092C4.60921 1.43165 4.73888 1.66874 4.77552 1.928C4.84384 2.44596 4.97053 2.95453 5.15318 3.44401C5.22577 3.63712 5.24148 3.84698 5.19845 4.04874C5.15542 4.25049 5.05545 4.43569 4.9104 4.58237L4.22523 5.26754C4.99325 6.61822 6.11159 7.73656 7.46226 8.50458L8.14744 7.81941C8.29412 7.67435 8.47932 7.57439 8.68107 7.53136C8.88283 7.48833 9.09269 7.50404 9.28579 7.57663C9.77527 7.75928 10.2838 7.88597 10.8018 7.95428C11.0639 7.99126 11.3032 8.12326 11.4743 8.32519C11.6454 8.52712 11.7363 8.78489 11.7298 9.04948Z"
+                                  stroke="#1A1A1A" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        <span>+1 (450) 780 9317</span>
+                    </h2>
+                    <h2 class="left_headings">
+                        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M7 13C10.3137 13 13 10.3137 13 7C13 3.68629 10.3137 1 7 1C3.68629 1 1 3.68629 1 7C1 10.3137 3.68629 13 7 13Z"
+                                  stroke="black" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M1 7H13" stroke="black" stroke-width="1.2" stroke-linecap="round"
+                                  stroke-linejoin="round"/>
+                            <path d="M6.99961 1C8.50038 2.64301 9.35326 4.77522 9.39961 7C9.35326 9.22478 8.50038 11.357 6.99961 13C5.49884 11.357 4.64596 9.22478 4.59961 7C4.64596 4.77522 5.49884 2.64301 6.99961 1V1Z"
+                                  stroke="black" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        <span>www.yourname.com</span>
+                    </h2>
+                    <h2 class="left_headings">
+                        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M6.86111 13.5C9.29167 11 11.7222 8.76139 11.7222 6C11.7222 3.23858 9.54583 1 6.86111 1C4.1764 1 2 3.23858 2 6C2 8.76139 4.43056 11 6.86111 13.5Z"
+                                  stroke="black" stroke-width="0.96" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M6.86068 7.9445C8.0113 7.9445 8.94401 7.01179 8.94401 5.86117C8.94401 4.71058 8.0113 3.77783 6.86068 3.77783C5.71005 3.77783 4.77734 4.71058 4.77734 5.86117C4.77734 7.01179 5.71005 7.9445 6.86068 7.9445Z"
+                                  stroke="black" stroke-width="0.96" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        <span>502 Kennwood Avenue Merritt Island FL</span>
+                    </h2>
+
+                </div>
+            </div>
+
+        </div>
+        <div class="row information_div">
+            <div class="col-3">
+                <h6>Information</h6>
+                <h5>Gender<span> Male</span></h5>
+                <h5>DOB<span> 24/Dec/2000</span></h5>
+                <h5>Martial status<span> Unmarried</span></h5>
+                <h5>Driving License<span> RN-18-2761</span></h5>
+            </div>
+            <div class="col-3">
+                <h6>Other Skills</h6>
+                <div style="display: flex">
+                    <div style="width: 100px">
+                        <h2 class="left_data">HTML</h2>
+                    </div>
+                    <div style="width: 300px">
+                        <ul class="rating">
+                            <li class="active"></li>
+                            <li class="active"></li>
+                            <li class="active"></li>
+                            <li class="active"></li>
+                            <li class="active"></li>
+                            <li></li>
+                        </ul>
+                    </div>
+                </div>
+                <div style="display: flex">
+                    <div style="width: 100px">
+                        <h2 class="left_data">HTML</h2>
+                    </div>
+                    <div style="width: 300px">
+                        <ul class="rating">
+                            <li class="active"></li>
+                            <li class="active"></li>
+                            <li class="active"></li>
+                            <li class="active"></li>
+                            <li class="active"></li>
+                            <li></li>
+                        </ul>
+                    </div>
+                </div>
+                <div style="display: flex">
+                    <div style="width: 100px">
+                        <h2 class="left_data">HTML</h2>
+                    </div>
+                    <div style="width: 300px">
+                        <ul class="rating">
+                            <li class="active"></li>
+                            <li class="active"></li>
+                            <li class="active"></li>
+                            <li class="active"></li>
+                            <li class="active"></li>
+                            <li></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-3">
+                <h6>Languages</h6>
+                <span> French (native)</span><br>
+                <span> French (native)</span><br>
+                <span> French (native)</span>
+            </div>
+            <div class="col-3">
+                <h6>Interests</h6>
+                <span> Hockey</span><br>
+                <span> Hockey</span><br>
+                <span> Hockey</span><br>
+            </div>
+        </div>
+        <div class="row information_div">
+            <div class="col-3">
+                <h4>About me</h4>
+            </div>
+            <div class="col-9">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Neque tempor, malesuada adipiscing congue
+                    diam quis orci amet porttitor blandit amet nullam sit. Blandit sed mattis pulvinar non.</p>
+            </div>
+        </div>
+        <div class="row information_div">
+            <div class="col-3">
+                <h4>Education</h4>
+            </div>
+            <div class="col-4">
+                <h3>Master of Design<span>  2017 - 2020</span></h3>
+                <h2>University of Oxford</h2>
+            </div>
+            <div class="col-4">
+                <h3>Master of Design<span>  2017 - 2020</span></h3>
+                <h2>University of Oxford</h2>
+            </div>
+        </div>
+        <div class="row information_div">
+            <div class="col-3">
+                <h4>Past experience</h4>
+            </div>
+            <div class="col-9">
+                <div class="experience">
+                    <h6>Google</h6>
+                    <h5>VP of Design<span>2021 - 2023</span></h5>
+                    <p>Ultrices proin elit, tellus euismod leo id volutpat cursus integer faucibus.</p>
+                </div>
+                <div class="experience">
+                    <h6>Google</h6>
+                    <h5>VP of Design<span>2021 - 2023</span></h5>
+                    <p>Ultrices proin elit, tellus euismod leo id volutpat cursus integer faucibus.</p>
+                </div>
+                <div class="experience">
+                    <h6>Google</h6>
+                    <h5>VP of Design<span>2021 - 2023</span></h5>
+                    <p>Ultrices proin elit, tellus euismod leo id volutpat cursus integer faucibus.</p>
+                </div>
+            </div>
+        </div>
+        <div class="row information_div">
+            <div class="col-3">
+                <h4>Projects</h4>
+            </div>
+            <div class="col-9">
+                <div style="margin-bottom: 15px">
+                    <h1>Uber Case Study</h1>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Neque tempor, malesuada adipiscing
+                        congue
+                        diam quis orci amet porttitor blandit amet nullam sit. Blandit sed mattis pulvinar non.</p>
+                </div>
+                <div style="margin-bottom: 15px">
+                    <h1>Uber Case Study</h1>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Neque tempor, malesuada adipiscing
+                        congue
+                        diam quis orci amet porttitor blandit amet nullam sit. Blandit sed mattis pulvinar non.</p>
+                </div>
+                <div style="margin-bottom: 15px">
+                    <h1>Uber Case Study</h1>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Neque tempor, malesuada adipiscing
+                        congue
+                        diam quis orci amet porttitor blandit amet nullam sit. Blandit sed mattis pulvinar non.</p>
+                </div>
+            </div>
+        </div>
+        <div class="row information_div">
+            <div class="col-3">
+                <h4>Achievements And awards</h4>
+            </div>
+            <div class="col-9">
+                <div style="margin-bottom: 15px">
+                    <h1>Employee of the year</h1>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Neque tempor, malesuada adipiscing
+                        congue
+                        diam quis orci amet porttitor blandit amet nullam sit. Blandit sed mattis pulvinar non.</p>
+                </div>
+                <div style="margin-bottom: 15px">
+                    <h1>Employee of the year</h1>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Neque tempor, malesuada adipiscing
+                        congue
+                        diam quis orci amet porttitor blandit amet nullam sit. Blandit sed mattis pulvinar non.</p>
+                </div>
+                <div style="margin-bottom: 15px">
+                    <h1>Employee of the year</h1>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Neque tempor, malesuada adipiscing
+                        congue
+                        diam quis orci amet porttitor blandit amet nullam sit. Blandit sed mattis pulvinar non.</p>
+                </div>
+            </div>
+        </div>
+        <div class="row information_div">
+            <div class="col-3">
+                <h4>Publications</h4>
+            </div>
+            <div class="col-9">
+                <div style="margin-bottom: 15px">
+                    <h1>Employee of the year</h1>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Neque tempor, malesuada adipiscing
+                        congue
+                        diam quis orci amet porttitor blandit amet nullam sit. Blandit sed mattis pulvinar non.</p>
+                </div>
+                <div style="margin-bottom: 15px">
+                    <h1>Employee of the year</h1>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Neque tempor, malesuada adipiscing
+                        congue
+                        diam quis orci amet porttitor blandit amet nullam sit. Blandit sed mattis pulvinar non.</p>
+                </div>
+                <div style="margin-bottom: 15px">
+                    <h1>Employee of the year</h1>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Neque tempor, malesuada adipiscing
+                        congue
+                        diam quis orci amet porttitor blandit amet nullam sit. Blandit sed mattis pulvinar non.</p>
+                </div>
+            </div>
+        </div>
+        <div class="row information_div">
+            <div class="col-3">
+                <h4>Cover Letter</h4>
+            </div>
+            <div class="col-9">
+                <div style="margin-bottom: 15px">
+                    <p>Dear [Employer's Name],
+                        I am thrilled to apply for the [position] at [Company Name]. As the Employee of the Year at
+                        [Previous Company] and the author of a published case study on Food Panda, I bring a track
+                        record of excellence, dedication, and strategic insights. I am eager to contribute my skills to
+                        [Company Name].
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="row information_div">
+            <div class="col-3">
+                <h4>References</h4>
+            </div>
+            <div class="col-9">
+                <div class="experience_div" style="margin-bottom: 30px">
+                    <h5 class="experience_desgnation">Ibrahim Bin Haroon<span
+                            style="font-weight: 400">(Lead UIUX Designer)</span></h5>
+                    <h6 class="experience_company"><span style="font-weight: 700">Company Name:</span> Funsol Technology
+                    </h6>
+                    <h6 class="experience_company"><span style="font-weight: 700">Email:</span> yourmail@gmail.com</h6>
+                    <h6 class="experience_company"><span style="font-weight: 700">Phone Number:</span> +33 6 33 33 33 33
+                    </h6>
+                </div>
+                <div class="experience_div" style="margin-bottom: 30px">
+                    <h5 class="experience_desgnation">Ibrahim Bin Haroon<span
+                            style="font-weight: 400">(Lead UIUX Designer)</span></h5>
+                    <h6 class="experience_company"><span style="font-weight: 700">Company Name:</span> Funsol Technology
+                    </h6>
+                    <h6 class="experience_company"><span style="font-weight: 700">Email:</span> yourmail@gmail.com</h6>
+                    <h6 class="experience_company"><span style="font-weight: 700">Phone Number:</span> +33 6 33 33 33 33
+                    </h6>
+                </div>
+                <div class="experience_div">
+                    <h5 class="experience_desgnation">Ibrahim Bin Haroon<span
+                            style="font-weight: 400">(Lead UIUX Designer)</span></h5>
+                    <h6 class="experience_company"><span style="font-weight: 700">Company Name:</span> Funsol Technology
+                    </h6>
+                    <h6 class="experience_company"><span style="font-weight: 700">Email:</span> yourmail@gmail.com</h6>
+                    <h6 class="experience_company"><span style="font-weight: 700">Phone Number:</span> +33 6 33 33 33 33
+                    </h6>
+                </div>
+            </div>
+        </div>
+        <div class="row information_div">
+            <div class="col-3">
+                <h4>Additional information</h4>
+            </div>
+            <div class="col-9">
+                <div style="margin-bottom: 15px">
+                    <p>Multilingual proficiency with fluency in [languages] and [proficiency level]. Holds
+                        [certifications] and excels in [technical skills]. Published author of a case study on [topic]
+                        and recipient of [awards], demonstrating a well-rounded and accomplished professional
+                        background.
+
+                    </p>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</div>
+</body>
+</html>
