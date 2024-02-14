@@ -41,31 +41,42 @@ class TemplateListView(APIView):
         serializer = TemplateSerializer(templates, many=True)
         return Response(serializer.data)
 
+
 class AddDataView(APIView):
     authentication_classes = [TokenAuthentication]
     permission_classes = [IsAuthenticated]
     def post(self, request, format=None):
         user_id = request.data.get('user', None)
+        template_id = request.data.get('template', None)
         if user_id is not None:
+            request.data['template'] = []
             # Check if BasicInformation already exists for the user
             try:
                 basic_info = BasicInformation.objects.get(user_id=user_id)
+                if template_id is not None:
+                    basic_info.template.add(template_id)
+                    template_ids = list(basic_info.template.values_list('id', flat=True))
+                    request.data["template"] = template_ids
+                    basic_info.save()
                 serializer = BasicInformationSerializer(basic_info, data=request.data)
             except BasicInformation.DoesNotExist:
+                if template_id is not None:
+                    request.data["template"] = [template_id]
                 serializer = BasicInformationSerializer(data=request.data)
-
             if serializer.is_valid():
                 basic_info = serializer.save()
                 try:
                     cv = BasicInformation.objects.get(pk=basic_info.id)
-                    image = cv.image.url  # Assuming cv.image is a FileField or ImageField
+                    image = None
+                    if cv.image:
+                        image = cv.image.url  # Assuming cv.image is a FileField or ImageField
                 except BasicInformation.DoesNotExist:
                     return HttpResponseBadRequest("CV not found")
 
                 # Build the absolute URL by combining the base URL and the media URL
                 absolute_url = request.build_absolute_uri(image)
-                template_id = cv.template.base
-                template_full_url = os.path.join(settings.BASE_DIR, template_id)
+                template = Template.objects.get(pk=template_id)
+                template_full_url = os.path.join(settings.BASE_DIR, template.base)
                 template = get_template(template_full_url)
                 context = {'cv': cv, 'absolute_url': absolute_url}
                 html_content = template.render(context)
@@ -111,12 +122,21 @@ class CVPdf(APIView):
 
     def post(self, request, format=None):
         user_id = request.data.get('user', None)
+        template_id = request.data.get('template', None)
         request_body = request.data.copy()
         if user_id is not None:
+            request.data['template'] = []
             try:
                 basic_info = BasicInformation.objects.get(user_id=user_id)
+                if template_id is not None:
+                    basic_info.template.add(template_id)
+                    template_ids = list(basic_info.template.values_list('id', flat=True))
+                    request.data["template"] = template_ids
+                    basic_info.save()
                 serializer = BasicInformationSerializer(basic_info, data=request.data)
             except BasicInformation.DoesNotExist:
+                if template_id is not None:
+                    request.data["template"] = [template_id]
                 serializer = BasicInformationSerializer(data=request.data)
 
             if serializer.is_valid():
@@ -241,3 +261,16 @@ class LoginView(APIView):
 #             return Response(serializer.data, status=status.HTTP_200_OK)
 #         except Exception as e:
 #             return Response({'error': str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+
+
+class UserDetailsView(APIView):
+    authentication_classes = [TokenAuthentication]
+    permission_classes = [IsAuthenticated]
+    def get(self, request, format=None):
+        user_id = request.query_params.get('user_id')
+        try:
+            information = BasicInformation.objects.get(user=user_id)
+        except BasicInformation.DoesNotExist:
+            return Response({'error': "No info for this user found"}, status=status.HTTP_404_NOT_FOUND)
+        serializer = BasicInformationSerializer(information)
+        return Response(serializer.data, status=status.HTTP_200_OK)

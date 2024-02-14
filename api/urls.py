@@ -10,4 +10,5 @@ urlpatterns = [
     # path('user_templates/', UserTemplatesView.as_view(), name='user_templates'),
     path('register/', RegisterView.as_view(), name='register'),
     path('login/', LoginView.as_view(), name='login'),
+    path('user_info/', UserDetailsView.as_view(), name='user_info'),
 ]

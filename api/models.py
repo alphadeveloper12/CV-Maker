@@ -53,13 +53,14 @@ class BasicInformation(models.Model):
     cover_letter = models.TextField(null=True, blank=True)
     references = models.ManyToManyField('Reference', blank=True)
     additional_info = models.TextField(null=True, blank=True)
-    template = models.ForeignKey(Template, on_delete=models.SET_NULL, null=True, blank=True)
+    template = models.ManyToManyField(Template)
 
     def __str__(self):
-        if self.template:
-            return f"CV: {self.first_name} - Template: {self.template.title}"
-        else:
-            return f"{self.first_name}"
+        # if self.template:
+        #     return f"CV: {self.first_name} - Template: {self.template.title}"
+        # else:
+        #     return f"{self.first_name}"
+        return f"{self.first_name}"
 
 
 class Project(models.Model):

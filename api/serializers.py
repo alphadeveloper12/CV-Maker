@@ -108,6 +108,8 @@ class BasicInformationSerializer(serializers.ModelSerializer):
     achievements_and_awards = AchievementAndAwardSerializer(many=True, allow_null=True, required=False)
     publications = PublicationSerializer(many=True, allow_null=True, required=False)
     references = ReferenceSerializer(many=True, allow_null=True, required=False)
+    image = serializers.ImageField(allow_null=True, required=False)
+    templates = TemplateSerializer(many=True, allow_null=True, required=False)
 
     class Meta:
         model = BasicInformation
@@ -126,6 +128,7 @@ class BasicInformationSerializer(serializers.ModelSerializer):
         achievements_and_awards_data = validated_data.pop('achievements_and_awards', [])
         publications_data = validated_data.pop('publications', [])
         references_data = validated_data.pop('references', [])
+        template_data = validated_data.pop('template', None)
 
         basic_info = BasicInformation.objects.create(**validated_data)
 
@@ -142,7 +145,8 @@ class BasicInformationSerializer(serializers.ModelSerializer):
         basic_info.achievements_and_awards.set(AchievementAndAward.objects.create(**item) for item in achievements_and_awards_data)
         basic_info.publications.set(Publication.objects.create(**item) for item in publications_data)
         basic_info.references.set(Reference.objects.create(**item) for item in references_data)
-
+        if template_data:
+            basic_info.template.set(template_data)
         return basic_info
 
     def update(self, instance, validated_data):
@@ -158,6 +162,7 @@ class BasicInformationSerializer(serializers.ModelSerializer):
         achievements_and_awards_data = validated_data.pop('achievements_and_awards', [])
         publications_data = validated_data.pop('publications', [])
         references_data = validated_data.pop('references', [])
+        template_data = validated_data.pop('template', None)
 
         instance = super(BasicInformationSerializer, self).update(instance, validated_data)
 
@@ -174,5 +179,6 @@ class BasicInformationSerializer(serializers.ModelSerializer):
         instance.achievements_and_awards.set(AchievementAndAward.objects.create(**item) for item in achievements_and_awards_data)
         instance.publications.set(Publication.objects.create(**item) for item in publications_data)
         instance.references.set(Reference.objects.create(**item) for item in references_data)
-
+        if template_data:
+            instance.template.set(template_data)
         return instance
