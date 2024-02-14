@@ -31,6 +31,17 @@ urlpatterns = [
     path('api/', include('api.urls')),
     # path('login/', CustomLoginView.as_view(), name='login'),
     path('logout/', LogoutView.as_view(next_page='login'), name='logout'),
+    path('cv1/<int:cv_id>/', cv_detail_1, name='cv_detail_1'),
+    path('cv2/<int:cv_id>/', cv_detail_2, name='cv_detail_2'),
+    path('cv3/<int:cv_id>/', cv_detail_3, name='cv_detail_3'),
+    path('cv4/<int:cv_id>/', cv_detail_4, name='cv_detail_4'),
+    path('cv5/<int:cv_id>/', cv_detail_5, name='cv_detail_5'),
+    path('cv6/<int:cv_id>/', cv_detail_6, name='cv_detail_6'),
+    path('cv7/<int:cv_id>/', cv_detail_7, name='cv_detail_7'),
+    path('cv8/<int:cv_id>/', cv_detail_8, name='cv_detail_8'),
+    path('cv9/<int:cv_id>/', cv_detail_9, name='cv_detail_9'),
+    path('cv10/<int:cv_id>/', cv_detail_10, name='cv_detail_10'),
+    path('api/cv-detail/<int:cv_id>/', CVDetailView.as_view(), name='cv_detail_api'),
 ]
 # Serve static files during development
 if settings.DEBUG:

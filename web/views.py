@@ -9,11 +9,25 @@ from django.shortcuts import render, redirect
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
-
+from django.conf import settings
+from django.http import HttpResponseBadRequest
+import os
 
 def cv_detail_1(request, cv_id):
-    cv = BasicInformation.objects.get(pk=cv_id)
-    return render(request, 'template1.html', context={'cv': cv})
+    try:
+        cv = BasicInformation.objects.get(pk=cv_id)
+        image = cv.image.url  # Assuming cv.image is a FileField or ImageField
+    except BasicInformation.DoesNotExist:
+        return HttpResponseBadRequest("CV not found")
+
+    # Build the absolute URL by combining the base URL and the media URL
+    absolute_url = request.build_absolute_uri(image)
+    print(absolute_url)
+
+    # Include the absolute_url in the context
+    context = {'cv': cv, 'absolute_url': absolute_url}
+
+    return render(request, 'template1.html', context=context)
 
 
 def cv_detail_2(request, cv_id):
@@ -32,7 +46,13 @@ def cv_detail_4(request, cv_id):
 
 def cv_detail_5(request, cv_id):
     cv = BasicInformation.objects.get(pk=cv_id)
-    return render(request, 'template5.html', context={'cv': cv})
+    image = cv.image.url
+    absolute_url = request.build_absolute_uri(image)
+    template_id = cv.template.base
+    template_full_url = os.path.join(settings.BASE_DIR, template_id)
+    template = get_template(template_full_url)
+    context = {'cv': cv, 'absolute_url': absolute_url}
+    return render(request, 'template5.html', context=context)
 
 def cv_detail_6(request, cv_id):
     cv = BasicInformation.objects.get(pk=cv_id)
@@ -40,11 +60,23 @@ def cv_detail_6(request, cv_id):
 
 def cv_detail_7(request, cv_id):
     cv = BasicInformation.objects.get(pk=cv_id)
-    return render(request, 'template7.html', context={'cv': cv})
+    image = cv.image.url
+    absolute_url = request.build_absolute_uri(image)
+    template_id = cv.template.base
+    template_full_url = os.path.join(settings.BASE_DIR, template_id)
+    template = get_template(template_full_url)
+    context = {'cv': cv, 'absolute_url': absolute_url}
+    return render(request, 'template7.html', context=context)
 
 def cv_detail_8(request, cv_id):
     cv = BasicInformation.objects.get(pk=cv_id)
-    return render(request, 'template8.html', context={'cv': cv})
+    image = cv.image.url
+    absolute_url = request.build_absolute_uri(image)
+    template_id = cv.template.base
+    template_full_url = os.path.join(settings.BASE_DIR, template_id)
+    template = get_template(template_full_url)
+    context = {'cv': cv, 'absolute_url': absolute_url}
+    return render(request, 'template8.html', context=context)
 
 def cv_detail_9(request, cv_id):
     cv = BasicInformation.objects.get(pk=cv_id)

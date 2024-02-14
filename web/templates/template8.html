@@ -14,11 +14,16 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
             crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Arial&display=swap">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap"
+          rel="stylesheet">
     {#    <link rel="stylesheet" href="{% static 'css/template7.css' %}">#}
     <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
         .container-fluid {
-            padding: 40px;
+            padding: 0px 40px;
         }
 
         .header_div span {
@@ -51,9 +56,9 @@
         }
 
         .email_div span {
-            color: #73808D!important;
-            font-size: 14px!important;
-            font-weight: 700!important;
+            color: #73808D !important;
+            font-size: 14px !important;
+            font-weight: 700 !important;
         }
 
         .email_div h5 {
@@ -183,16 +188,16 @@
             <div class="row">
                 <div class="col-6" style="height: 200px; display: flex;align-items: center">
                     <div>
-                        <h6>Jos <span>Buttler,</span></h6>
-                        <h5>UX Designer</h5>
+                        <h6>{{ cv.first_name }} <span>{{ cv.last_name }},</span></h6>
+                        <h5>{{ cv.designation }}</h5>
                     </div>
                 </div>
                 <div class="col-6" style="height: 200px; display: flex;align-items: center; justify-content: end">
                     <div class="email_div">
-                        <h6><span>Email:</span>yourmail@gmail.com</h6>
-                        <h6><span>Website:</span>Josbuttler.com</h6>
-                        <h6><span>Contact:</span>yourmail@gmail.com</h6>
-                        <h6><span>Address:</span>yourmail@gmail.com</h6>
+                        <h6><span>Email:</span>{{ cv.email }}</h6>
+                        <h6><span>Website:</span>{cv.website</h6>
+                        <h6><span>Contact:</span>{{ cv.phone }}</h6>
+                        <h6><span>Address:</span>{{ cv.address }}</h6>
                     </div>
                 </div>
             </div>
@@ -201,204 +206,146 @@
     <div class="container-fluid">
         <div class="row email_div">
             <div class="col-4">
+
                 <div style="margin-top: 30px">
                     <h5>Gender</h5>
-                    <h4>Male</h4>
+                    <h4>{{ cv.gender }}</h4>
                 </div>
                 <div style="margin-top: 30px">
                     <h5>DOB </h5>
-                    <h4>24/Dec/2000</h4>
+                    <h4>{{ cv.date_of_birth }}</h4>
                 </div>
                 <div style="margin-top: 30px">
                     <h5>Martial status</h5>
-                    <h4>Unmarried</h4>
+                    <h4>{{ cv.marital_status }}</h4>
                 </div>
                 <div style="margin-top: 30px">
                     <h5>Driving License </h5>
-                    <h4>RN-18-2761</h4>
+                    <h4>{{ cv.driving_license }}</h4>
                 </div>
                 <div style="margin-top: 30px">
                     <h5>Other Skills </h5>
-                    <div style="display: flex">
-                        <div style="width: 100px">
-                            <h2 class="left_data">HTML</h2>
+                    {% for skill in cv.other_skills.all %}
+                        <div style="display: flex">
+                            <div style="width: 100px">
+                                <h2 class="left_data">{{ skill.name }}</h2>
+                            </div>
+                            <div style="width: 300px">
+                                <ul class="rating">
+                                    <li class="active"></li>
+                                    <li class="active"></li>
+                                    <li class="active"></li>
+                                    <li class="active"></li>
+                                    <li class="active"></li>
+                                    <li></li>
+                                </ul>
+                            </div>
                         </div>
-                        <div style="width: 300px">
-                            <ul class="rating">
-                                <li class="active"></li>
-                                <li class="active"></li>
-                                <li class="active"></li>
-                                <li class="active"></li>
-                                <li class="active"></li>
-                                <li></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div style="display: flex">
-                        <div style="width: 100px">
-                            <h2 class="left_data">HTML</h2>
-                        </div>
-                        <div style="width: 300px">
-                            <ul class="rating">
-                                <li class="active"></li>
-                                <li class="active"></li>
-                                <li class="active"></li>
-                                <li class="active"></li>
-                                <li class="active"></li>
-                                <li></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div style="display: flex">
-                        <div style="width: 100px">
-                            <h2 class="left_data">HTML</h2>
-                        </div>
-                        <div style="width: 300px">
-                            <ul class="rating">
-                                <li class="active"></li>
-                                <li class="active"></li>
-                                <li class="active"></li>
-                                <li class="active"></li>
-                                <li class="active"></li>
-                                <li></li>
-                            </ul>
-                        </div>
-                    </div>
+                    {% endfor %}
+
                 </div>
                 <div style="margin-top: 30px">
                     <h5>Languages </h5>
-                    <h4>French (native)</h4>
-                    <h4>French (native)</h4>
-                    <h4>French (native)</h4>
+                    {% for lang in cv.languages.all %}
+                        <h4>{{ lang.name }} ({{ lang.proficiency }})</h4>
+                    {% endfor %}
+
                 </div>
                 <div style="margin-top: 30px">
                     <h5>Interests </h5>
-                    <h4>Hockey, Cricket, Painting</h4>
+                    <h4>{% for interest in cv.interests.all %}
+                        {{ interest.name }}{% if not loop.last %}, {% endif %}
+                    {% endfor %}</h4>
                 </div>
                 <div style="margin-top: 30px">
                     <h5>Activities </h5>
-                    <h4>Gym</h4>
-                    <h4>Gym</h4>
-                    <h4>Gym</h4>
+                    {% for activity in cv.activities.all %}
+                        <h4>{{ activity.name }}</h4>
+                    {% endfor %}
                 </div>
             </div>
-            <div class="col-8" style="border-left: 1px solid #EAEAEA;padding-left: 25px">
+            <div class="col-8">
+                <div style="border-left: 1px solid #EAEAEA;padding-left: 25px">
+                    <div class="objective_div">
+                        <h6>Objective</h6>
+                        <h5>{{ cv.objective }}</h5>
+                    </div>
 
-                <div class="objective_div">
-                    <h6>Objective</h6>
-                    <h5>Lorem ipsum dolor sit amet consectetur adipiscing elit volutpat vestibulum vitae cursus enim
-                        eget elit tincidunt mauris semper platea </h5>
+                    <div class="objective_div">
+                        <h6>Work experience</h6>
+                        {% for experience in cv.experiences.all %}
+                            <div>
+                                <h4>{{ experience.company_name }} <span>{{ experience.designation }}</span></h4>
+                                <h3>{{ experience.start_at }} - {{ experience.end_at }}</h3>
+                                <p>{{ experience.description }} </p>
+                            </div>
+                        {% endfor %}
+
+                    </div>
+
+                    <div class="objective_div">
+                        <h6>Education</h6>
+                        {% for edu in cv.educations.all %}
+                            <div>
+                                <h4>{{ edu.school }} <span>{{ edu.name }}</span></h4>
+                                <h3>{{ edu.start_at }} - {{ edu.end_at }}</h3>
+                                <p>{{ edu.description }} </p>
+                            </div>
+                        {% endfor %}
+                    </div>
                 </div>
-
-                <div class="objective_div">
-                    <h6>Work experience</h6>
-                    <div>
-                        <h4>Facebook <span>UX Design Intern</span></h4>
-                        <h3>JAN 2023 - PRESENT</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipiscing elit vitae cursus enim eget elit
-                            tincidunt
-                            mauris, semper platea egestas tempus. </p>
-                    </div>
-                    <div>
-                        <h4>Facebook <span>UX Design Intern</span></h4>
-                        <h3>JAN 2023 - PRESENT</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipiscing elit vitae cursus enim eget elit
-                            tincidunt
-                            mauris, semper platea egestas tempus. </p>
-                    </div>
-                    <div>
-                        <h4>Facebook <span>UX Design Intern</span></h4>
-                        <h3>JAN 2023 - PRESENT</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipiscing elit vitae cursus enim eget elit
-                            tincidunt
-                            mauris, semper platea egestas tempus. </p>
-                    </div>
-
-                </div>
-
-                <div class="objective_div">
-                    <h6>Education</h6>
-                    <div>
-                        <h4>University of Design <span>BSc(HCI)</span></h4>
-                        <h3>JAN 2023 - PRESENT</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipiscing elit vitae cursus enim eget elit
-                            tincidunt
-                            mauris, semper platea egestas tempus. </p>
-                    </div>
-                    <div>
-                        <h4>University of Design <span>BSc(HCI)</span></h4>
-                        <h3>JAN 2023 - PRESENT</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipiscing elit vitae cursus enim eget elit
-                            tincidunt
-                            mauris, semper platea egestas tempus. </p>
-                    </div>
-                    <div>
-                        <h4>University of Design <span>BSc(HCI)</span></h4>
-                        <h3>JAN 2023 - PRESENT</h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipiscing elit vitae cursus enim eget elit
-                            tincidunt
-                            mauris, semper platea egestas tempus. </p>
-                    </div>
-
-
-                </div>
-
 
             </div>
         </div>
 
         <div class="objective_div" style="">
             <h6>Achievements And awards</h6>
-            <div style="margin-bottom: 25px">
-                <h3>Employee of the year <span>-</span></h3>
-                <p>Recipient of Employee of the Year award, acknowledged for exceptional dedication, outstanding
-                    performance, and impactful contributions to Funsol technologies </p>
-            </div>
+            {% for achieve in cv.achievements_and_awards.all %}
+                <div style="margin-bottom: 25px">
+                    <h3>{{ achieve.name }} <span>-</span></h3>
+                    <p>{{ achieve.description }}</p>
+                </div>
+            {% endfor %}
         </div>
 
         <div class="objective_div" style="">
             <h6>Publications</h6>
-            <div style="margin-bottom: 25px">
-                <h3>Food Panda <span>-</span></h3>
-                <p>Recipient of Employee of the Year award, acknowledged for exceptional dedication, outstanding
-                    performance, and impactful contributions to Funsol technologies </p>
-            </div>
+            {% for public in cv.publications.all %}
+                <div style="margin-bottom: 25px">
+                    <h3>{{ public.name }} <span>-</span></h3>
+                    <p>{{ public.description }}</p>
+                </div>
+            {% endfor %}
         </div>
 
         <div class="objective_div" style="">
             <h6>Cover Letter</h6>
             <div style="margin-bottom: 25px">
-                <p>Dear [Employer's Name],
-                    I am thrilled to apply for the [position] at [Company Name]. As the Employee of the Year at
-                    [Previous Company] and the author of a published case study on Food Panda, I bring a track
-                    record of
-                    excellence, dedication, and strategic insights. I am eager to contribute my skills to [Company
-                    Name].
+                <p>{{ cv.cover_letter }}
                 </p>
             </div>
         </div>
 
         <div class="reference_div" style="">
             <h6>References</h6>
-            <div style="margin-bottom: 25px">
-                <div class="experience_div" style="margin-bottom: 30px">
-                    <h5>Ibrahim Bin Haroon<span>(Lead UIUX Designer)</span></h5>
-                    <ul>
-                        <li><h4>Company Name:<span>Funsol Technology</span></h4></li>
-                        <li><h4>Company Name:<span>Funsol Technology</span></h4></li>
-                        <li><h4>Company Name:<span>Funsol Technology</span></h4></li>
-                    </ul>
+            {% for refre in cv.references.all %}
+                <div style="margin-bottom: 25px">
+                    <div class="experience_div" style="margin-bottom: 30px">
+                        <h5>{{ refre.name }}<span>({{ refre.designation }})</span></h5>
+                        <ul>
+                            <li><h4>Company Name:<span>{{ refre.company_name }}</span></h4></li>
+                            <li><h4>Email:<span>{{ refre.email }}</span></h4></li>
+                            <li><h4>Phone Number:<span>{{ refre.phone }}</span></h4></li>
+                        </ul>
+                    </div>
                 </div>
-            </div>
+            {% endfor %}
         </div>
 
         <div class="objective_div" style="">
             <h6>Additional information</h6>
             <div style="margin-bottom: 25px">
-                <p>Multilingual proficiency with fluency in [languages] and [proficiency level]. Holds
-                    [certifications]
-                    and excels in [technical skills]. Published author of a case study on [topic] and recipient of
-                    [awards], demonstrating a well-rounded and accomplished professional background.
+                <p>{{ cv.additional_info }}
                 </p>
             </div>
         </div>

@@ -151,7 +151,7 @@ class Tool(models.Model):
 
 class OtherSkill(models.Model):
     name = models.CharField(max_length=255, null=True, blank=True)
-    rating = models.PositiveIntegerField(choices=[(i, str(i)) for i in range(1, 6)], null=True, blank=True)
+    rating = models.PositiveIntegerField(choices=[(i, str(i)) for i in range(1, 5)], null=True, blank=True)
 
     def __str__(self):
         return f"{self.name} - Rating: {self.rating}"

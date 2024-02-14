@@ -1,6 +1,7 @@
 # api/views.py
 import uuid
-
+from django.conf import settings
+from django.http import HttpResponseBadRequest
 from rest_framework import status
 from rest_framework.response import Response
 from rest_framework.views import APIView
@@ -55,11 +56,18 @@ class AddDataView(APIView):
 
             if serializer.is_valid():
                 basic_info = serializer.save()
-                cv = BasicInformation.objects.get(pk=basic_info.id)
+                try:
+                    cv = BasicInformation.objects.get(pk=basic_info.id)
+                    image = cv.image.url  # Assuming cv.image is a FileField or ImageField
+                except BasicInformation.DoesNotExist:
+                    return HttpResponseBadRequest("CV not found")
+
+                # Build the absolute URL by combining the base URL and the media URL
+                absolute_url = request.build_absolute_uri(image)
                 template_id = cv.template.base
                 template_full_url = os.path.join(settings.BASE_DIR, template_id)
                 template = get_template(template_full_url)
-                context = {'cv': cv}
+                context = {'cv': cv, 'absolute_url': absolute_url}
                 html_content = template.render(context)
                 # Use Selenium to render the template
                 chrome_options = Options()

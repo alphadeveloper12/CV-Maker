@@ -14,11 +14,18 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
             crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Arial&display=swap">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100;0,9..40,200;0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;0,9..40,800;0,9..40,900;0,9..40,1000;1,9..40,100;1,9..40,200;1,9..40,300;1,9..40,400;1,9..40,500;1,9..40,600;1,9..40,700;1,9..40,800;1,9..40,900;1,9..40,1000&display=swap"
+          rel="stylesheet">
     {#    <link rel="stylesheet" href="{% static 'css/template5.css' %}">#}
     <style>
+        body {
+            font-family: 'DM Sans', sans-serif;
+        }
+
         .container-fluid {
-            padding: 40px;
+            padding: 0px 40px;
         }
 
         .header_div {
@@ -164,12 +171,12 @@
         <div class="container-fluid" style="padding: 0px 40px">
             <div class="row">
                 <div class="col-4" style="height: 200px; display: flex;align-items: end">
-                    <img src="{% static 'template5/Profile.svg' %}">
+                    <img src="{{ absolute_url }}" style="width: 150px"/>
                 </div>
                 <div class="col-8" style="height: 200px; display: flex;align-items: center">
                     <div>
-                        <h6><span>-</span> UI/UX Designer</h6>
-                        <h5>Jos Buttler</h5>
+                        <h6><span>-</span> {{ cv.designation }}</h6>
+                        <h5>{{ cv.first_name }} {{ cv.last_name }}</h5>
                     </div>
                 </div>
 
@@ -179,165 +186,112 @@
     <div class="container-fluid">
         <div class="row email_div">
             <div class="col-4">
-                <div>
-                    <h6><span>Email:</span>yourmail@gmail.com</h6>
-                    <h6><span>Website:</span>Josbuttler.com</h6>
-                    <h6><span>Contact:</span>yourmail@gmail.com</h6>
-                    <h6><span>Address:</span>yourmail@gmail.com</h6>
+                <div style="margin-top: 40px">
+                    <h6><span>Email:</span>{{ cv.cv_email }}</h6>
+                    <h6><span>Website:</span>{{ cv.website }}</h6>
+                    <h6><span>Contact:</span>{{ cv.phone }}</h6>
+                    <h6><span>Address:</span>{{ cv.address }}</h6>
                 </div>
                 <div style="margin-top: 30px">
                     <h5>Gender</h5>
-                    <h4>Male</h4>
+                    <h4>{{ cv.gender }}</h4>
                 </div>
                 <div style="margin-top: 30px">
                     <h5>DOB </h5>
-                    <h4>24/Dec/2000</h4>
+                    <h4>{{ cv.date_of_birth }}</h4>
                 </div>
                 <div style="margin-top: 30px">
                     <h5>Martial status</h5>
-                    <h4>Unmarried</h4>
+                    <h4>{{ cv.marital_status }}</h4>
                 </div>
                 <div style="margin-top: 30px">
                     <h5>Driving License </h5>
-                    <h4>RN-18-2761</h4>
+                    <h4>{{ cv.driving_license }}</h4>
                 </div>
                 <div style="margin-top: 30px">
                     <h5>Other Skills </h5>
-                    <div style="display: flex">
-                        <div style="width: 100px">
-                            <h2 class="left_data">HTML</h2>
+                    {% for skill in cv.other_skills.all %}
+                        <div>
+                            <div style="width: 100px">
+                                <h2 class="left_data">{{ skill.name }}</h2>
+                            </div>
+                            <div style="width: 300px; margin-bottom: 15px">
+                                <ul class="rating">
+                                    <li class="active"></li>
+                                    <li class="active"></li>
+                                    <li class="active"></li>
+                                    <li class="active"></li>
+                                    <li class="active"></li>
+                                    <li></li>
+                                </ul>
+                            </div>
                         </div>
-                        <div style="width: 300px">
-                            <ul class="rating">
-                                <li class="active"></li>
-                                <li class="active"></li>
-                                <li class="active"></li>
-                                <li class="active"></li>
-                                <li class="active"></li>
-                                <li></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div style="display: flex">
-                        <div style="width: 100px">
-                            <h2 class="left_data">HTML</h2>
-                        </div>
-                        <div style="width: 300px">
-                            <ul class="rating">
-                                <li class="active"></li>
-                                <li class="active"></li>
-                                <li class="active"></li>
-                                <li class="active"></li>
-                                <li class="active"></li>
-                                <li></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div style="display: flex">
-                        <div style="width: 100px">
-                            <h2 class="left_data">HTML</h2>
-                        </div>
-                        <div style="width: 300px">
-                            <ul class="rating">
-                                <li class="active"></li>
-                                <li class="active"></li>
-                                <li class="active"></li>
-                                <li class="active"></li>
-                                <li class="active"></li>
-                                <li></li>
-                            </ul>
-                        </div>
-                    </div>
+                    {% endfor %}
+
                 </div>
                 <div style="margin-top: 30px">
                     <h5>Languages </h5>
-                    <h4>French (native)</h4>
-                    <h4>French (native)</h4>
-                    <h4>French (native)</h4>
+                    {% for lang in cv.languages.all %}
+                        <h4>{{ lang.name }} ({{ lang.proficiency }})</h4>
+                    {% endfor %}
                 </div>
                 <div style="margin-top: 30px">
                     <h5>Interests </h5>
-                    <h4>Hockey, Cricket, Painting</h4>
+                    <h4>
+                        {% for interest in cv.interests.all %}
+                            {{ interest.name }}{% if not loop.last %}, {% endif %}
+                        {% endfor %}
+                    </h4>
                 </div>
                 <div style="margin-top: 30px">
                     <h5>Activities </h5>
-                    <h4>Gym</h4>
-                    <h4>Gym</h4>
-                    <h4>Gym</h4>
+                    {% for activity in cv.activities.all %}
+                        <h4>{{ activity.name }}</h4>
+                    {% endfor %}
                 </div>
             </div>
-            <div class="col-8" style="border-left: 1px solid #EAEAEA;padding-left: 25px">
-                <div style="height: 2px; width: 10px; background: #FFCB14;"></div>
-                <div class="objective_div">
-                    <h6>Objective</h6>
-                    <h5>Lorem ipsum dolor sit amet consectetur adipiscing elit volutpat vestibulum vitae cursus enim
-                        eget elit tincidunt mauris semper platea </h5>
-                </div>
-                <div style="height: 2px; width: 10px; background: #FFCB14;margin-top: 15px"></div>
-                <div class="objective_div">
-                    <h6>Work experience</h6>
-                    <div>
-                        <h4>Facebook</h4>
-                        <h3>Head of Business <span>- 2019  /  Present</span></h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipiscing elit vitae cursus enim eget elit
-                            tincidunt
-                            mauris, semper platea egestas tempus. </p>
+            <div class="col-8">
+                <div style="border-left: 1px solid #EAEAEA;padding-left: 25px">
+                    <div style="height: 2px; width: 10px; background: #FFCB14;"></div>
+                    <div class="objective_div">
+                        <h6>Objective</h6>
+                        <h5>{{ cv.objective }} </h5>
                     </div>
-                    <div style="margin-bottom: 25px">
-                        <h4>Facebook</h4>
-                        <h3>Head of Business <span>- 2019  /  Present</span></h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipiscing elit vitae cursus enim eget elit
-                            tincidunt
-                            mauris, semper platea egestas tempus. </p>
+                    <div style="height: 2px; width: 10px; background: #FFCB14;margin-top: 15px"></div>
+                    <div class="objective_div">
+                        <h6>Work experience</h6>
+                        {% for experience in cv.experiences.all %}
+                            <div style="margin-bottom: 25px">
+                                <h4>{{ experience.company_name }}</h4>
+                                <h3>{{ experience.designation }}
+                                    <span>- {{ experience.start_at }}  / {{ experience.end_at }}</span></h3>
+                                <p>{{ experience.description }} </p>
+                            </div>
+                        {% endfor %}
                     </div>
-                    <div>
-                        <h4>Facebook</h4>
-                        <h3>Head of Business <span>- 2019  /  Present</span></h3>
-                        <p>Lorem ipsum dolor sit amet consectetur adipiscing elit vitae cursus enim eget elit
-                            tincidunt
-                            mauris, semper platea egestas tempus. </p>
-                    </div>
-                </div>
-                <div style="height: 2px; width: 10px; background: #FFCB14;margin-top: 15px"></div>
-                <div class="objective_div">
-                    <h6>Education</h6>
-                    <div class="row">
-                        <div class="col-4">
-                            <h2>Stanford <span> - 2017 / 2020</span></h2>
-                            <h1>Master of business</h1>
+                    <div style="height: 2px; width: 10px; background: #FFCB14;margin-top: 15px"></div>
+                    <div class="objective_div">
+                        <h6>Education</h6>
+                        <div class="row">
+                            {% for edu in cv.educations.all %}
+                                <div class="col-4">
+                                    <h2>{{ edu.school }} <span> - {{ edu.start_at }} / {{ edu.start_at }}</span></h2>
+                                    <h1>{{ edu.name }}</h1>
+                                </div>
+                            {% endfor %}
                         </div>
-                        <div class="col-4">
-                            <h2>Stanford <span> - 2017 / 2020</span></h2>
-                            <h1>Master of business</h1>
-                        </div>
-                        <div class="col-4">
-                            <h2>Stanford <span> - 2017 / 2020</span></h2>
-                            <h1>Master of business</h1>
-                        </div>
-                    </div>
 
 
-                </div>
-                <div style="height: 2px; width: 10px; background: #FFCB14;margin-top: 15px"></div>
-                <div class="objective_div" style="border: none!important">
-                    <h6>Projects</h6>
-                    <div style="margin-bottom: 25px">
-                        <h3>Uber Case Study <span>-</span></h3>
-                        <p>Conducted a strategic case study on Uber, examining market trends and competitive
-                            analysis.
-                            Showcased analytical skills by deriving </p>
                     </div>
-                    <div style="margin-bottom: 25px">
-                        <h3>Uber Case Study <span>-</span></h3>
-                        <p>Conducted a strategic case study on Uber, examining market trends and competitive
-                            analysis.
-                            Showcased analytical skills by deriving </p>
-                    </div>
-                    <div style="margin-bottom: 25px">
-                        <h3>Uber Case Study <span>-</span></h3>
-                        <p>Conducted a strategic case study on Uber, examining market trends and competitive
-                            analysis.
-                            Showcased analytical skills by deriving </p>
+                    <div style="height: 2px; width: 10px; background: #FFCB14;margin-top: 15px"></div>
+                    <div class="objective_div" style="border: none!important">
+                        <h6>Projects</h6>
+                        {% for project in cv.projects.all %}
+                            <div style="margin-bottom: 25px">
+                                <h3>{{ project.title }} <span>-</span></h3>
+                                <p>{{ project.description }} </p>
+                            </div>
+                        {% endfor %}
                     </div>
                 </div>
             </div>
@@ -345,31 +299,28 @@
         <div style="height: 2px; width: 10px; background: #FFCB14;margin-top: 15px"></div>
         <div class="objective_div" style="">
             <h6>Achievements And awards</h6>
-            <div style="margin-bottom: 25px">
-                <h3>Employee of the year <span>-</span></h3>
-                <p>Recipient of Employee of the Year award, acknowledged for exceptional dedication, outstanding
-                    performance, and impactful contributions to Funsol technologies </p>
-            </div>
+            {% for achieve in cv.achievements_and_awards.all %}
+                <div style="margin-bottom: 25px">
+                    <h3>{{ achieve.name }} <span>-</span></h3>
+                    <p>{{ achieve.description }} </p>
+                </div>
+            {% endfor %}
         </div>
         <div style="height: 2px; width: 10px; background: #FFCB14;margin-top: 15px"></div>
         <div class="objective_div" style="">
             <h6>Publications</h6>
-            <div style="margin-bottom: 25px">
-                <h3>Food Panda <span>-</span></h3>
-                <p>Recipient of Employee of the Year award, acknowledged for exceptional dedication, outstanding
-                    performance, and impactful contributions to Funsol technologies </p>
-            </div>
+            {% for public in cv.publications.all %}
+                <div style="margin-bottom: 25px">
+                    <h3>{{ public.name }} <span>-</span></h3>
+                    <p>{{ public.description }} </p>
+                </div>
+            {% endfor %}
         </div>
         <div style="height: 2px; width: 10px; background: #FFCB14;margin-top: 15px"></div>
         <div class="objective_div" style="">
             <h6>Cover Letter</h6>
             <div style="margin-bottom: 25px">
-                <p>Dear [Employer's Name],
-                    I am thrilled to apply for the [position] at [Company Name]. As the Employee of the Year at
-                    [Previous Company] and the author of a published case study on Food Panda, I bring a track
-                    record of
-                    excellence, dedication, and strategic insights. I am eager to contribute my skills to [Company
-                    Name].
+                <p>{{ cv.cover_letter }}
                 </p>
             </div>
         </div>
@@ -377,53 +328,25 @@
         <div class="objective_div" style="">
             <h6>References</h6>
             <div style="margin-bottom: 25px">
-                <div class="experience_div" style="margin-bottom: 30px">
-                    <h5 class="experience_desgnation">Ibrahim Bin Haroon<span
-                            style="font-weight: 400">(Lead UIUX Designer)</span></h5>
-                    <h6 class="experience_company"><span style="font-weight: 700">Company Name:</span> Funsol
-                        Technology
-                    </h6>
-                    <h6 class="experience_company"><span style="font-weight: 700">Email:</span> yourmail@gmail.com
-                    </h6>
-                    <h6 class="experience_company"><span style="font-weight: 700">Phone Number:</span> +33 6 33 33
-                        33 33
-                    </h6>
-                </div>
-                <div class="experience_div" style="margin-bottom: 30px">
-                    <h5 class="experience_desgnation">Ibrahim Bin Haroon<span
-                            style="font-weight: 400">(Lead UIUX Designer)</span></h5>
-                    <h6 class="experience_company"><span style="font-weight: 700">Company Name:</span> Funsol
-                        Technology
-                    </h6>
-                    <h6 class="experience_company"><span style="font-weight: 700">Email:</span> yourmail@gmail.com
-                    </h6>
-                    <h6 class="experience_company"><span style="font-weight: 700">Phone Number:</span> +33 6 33 33
-                        33 33
-                    </h6>
-                </div>
-                <div class="experience_div" style="margin-bottom: 30px">
-                    <h5 class="experience_desgnation">Ibrahim Bin Haroon<span
-                            style="font-weight: 400">(Lead UIUX Designer)</span></h5>
-                    <h6 class="experience_company"><span style="font-weight: 700">Company Name:</span> Funsol
-                        Technology
-                    </h6>
-                    <h6 class="experience_company"><span style="font-weight: 700">Email:</span> yourmail@gmail.com
-                    </h6>
-                    <h6 class="experience_company"><span style="font-weight: 700">Phone Number:</span> +33 6 33 33
-                        33 33
-                    </h6>
-                </div>
-
+                {% for refer in cv.references.all %}
+                    <div class="experience_div" style="margin-bottom: 30px">
+                        <h5 class="experience_desgnation">{{ refer.name }}<span
+                                style="font-weight: 400">(Lead UIUX Designer)</span></h5>
+                        <h6 class="experience_company"><span style="font-weight: 700">Company Name:</span> {{ refer.company_name }}
+                        </h6>
+                        <h6 class="experience_company"><span style="font-weight: 700">Email:</span> {{ refer.email }}
+                        </h6>
+                        <h6 class="experience_company"><span style="font-weight: 700">Phone Number:</span> {{ refer.phone }}
+                        </h6>
+                    </div>
+                {% endfor %}
             </div>
         </div>
         <div style="height: 2px; width: 10px; background: #FFCB14;margin-top: 15px"></div>
         <div class="objective_div" style="">
             <h6>Additional information</h6>
             <div style="margin-bottom: 25px">
-                <p>Multilingual proficiency with fluency in [languages] and [proficiency level]. Holds
-                    [certifications]
-                    and excels in [technical skills]. Published author of a case study on [topic] and recipient of
-                    [awards], demonstrating a well-rounded and accomplished professional background.
+                <p>{{ cv.additional_info }}
                 </p>
             </div>
         </div>

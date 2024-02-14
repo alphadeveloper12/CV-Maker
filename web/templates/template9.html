@@ -140,8 +140,7 @@
         </div>
         <div class="col-6">
             <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vel eu vulputate et id morbi proin quam eget
-                aliquam pellentesque congue massa mattis fringilla platea.
+                {{ cv.objective }}
             </p>
         </div>
     </div>
@@ -149,48 +148,58 @@
         <div class="col-3">
             <h6>Experience</h6>
         </div>
-        <div class="col-3">
-            <h5>ABC Company</h5>
-            <h4>UX Design Intern</h4>
-            <h3>Jan 2023 - Present</h3>
-        </div>
-        <div class="col-6">
-            <ul>
-                <li>
-                    <p>
-                        Conducted user research and analyzed data to identify design opportunities and inform design
-                        decisions
-                    </p>
-                </li>
-                <li>
-                    <p>
-                        Collaborated with cross-functional teams to create wireframes, prototypes, and high-fidelity
-                        mockups
-                    </p>
-                </li>
-            </ul>
 
+        <div class="col-3">
+            {% for experience in cv.experiences.all %}
+                <div style="margin-bottom: 10px">
+                    <h5>{{ experience.company_name }}</h5>
+                    <h4>{{ experience.designation }}</h4>
+                    <h3>{{ experience.start_at }} - {{ experience.end_at }}</h3>
+                </div>
+            {% endfor %}
         </div>
+
+
+        <div class="col-6">
+            {% for experience in cv.experiences.all %}
+                <div style="margin-bottom: 20px">
+                    <ul>
+                        <li>
+                            <p>
+                                {{ experience.description }}
+                            </p>
+                        </li>
+                    </ul>
+                </div>
+            {% endfor %}
+        </div>
+
     </div>
     <div class="row main_div">
         <div class="col-3">
             <h6>Education</h6>
         </div>
         <div class="col-3">
-            <h5>School of Design</h5>
-            <h4>UX Design Bootcamp</h4>
-            <h3>Jan 2023 - Feb 2023</h3>
+            {% for edu in cv.educations.all %}
+                <div style="margin-bottom: 10px">
+                    <h5>{{ edu.school }}</h5>
+                    <h4>{{ edu.name }}</h4>
+                    <h3>{{ edu.start_at }} - {{ edu.end_at }}</h3>
+                </div>
+            {% endfor %}
         </div>
         <div class="col-6">
-            <ul>
-                <li>
-                    <p>
-                        Intensive, full-time program that provided hands-on training in user-centered design,
-                        prototyping, and visual design
-                    </p>
-                </li>
-            </ul>
-
+            {% for edu in cv.educations.all %}
+                <div style="margin-bottom: 20px">
+                    <ul>
+                        <li>
+                            <p>
+                                {{ edu.location }}
+                            </p>
+                        </li>
+                    </ul>
+                </div>
+            {% endfor %}
         </div>
     </div>
     <div class="row main_div">
